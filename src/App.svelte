@@ -1,34 +1,52 @@
-<script>
-    let isAddEmployeeFormOpened = true
+<script lang="ts">
+    import EmployeeForm from './EmployeeForm.svelte'
 
-    const showEmployee = () => isAddEmployeeFormOpened = true
+    let isAddEmployeeFormOpened = false
 
-    const addEmployee = (event) => {
-        event.preventDefault();
-        console.log(event);
+    let employeeList: Array<Employee> = [
+        {
+            name: 'Пупкин Василий Василиевич',
+            position: 'Охранник',
+        },
+        {
+            name: 'Александровна Александра Александровна',
+            position: 'Учитель',
+        }
+    ]
+
+    const addEmployee = (newEmployee: Employee) => {
+        employeeList = [...employeeList, newEmployee]
+        isAddEmployeeFormOpened = false
+    }
+</script>
+
+<script context="module" lang="ts">
+    export type Position = 'Учитель' | 'Уборщица' | 'Охранник'
+
+    export interface Employee {
+        name: string
+        position: Position
     }
 </script>
 
 <main class="Main">
     <h1 class="Main-Header">Vacapay alfa</h1>
-    <button on:click={showEmployee} class="Main-AddButton">Добавить нового сотрудника</button>
+    <button
+        on:click={() => isAddEmployeeFormOpened = true}
+        class="Main-AddButton"
+    >
+        Добавить нового сотрудника
+    </button>
     {#if isAddEmployeeFormOpened}
-        <form action="submit" on:submit={addEmployee} class="Main-Form">
-            <label class="Main-Label">
-                ФИО сотрудника
-                <input type="text" class="Main-Input" placeholder="Пупкин Василий Василиевич">
-            </label>
-            <label class="Main-Label">
-                Должность
-                <select class="Main-Input">
-                    <option value="" selected disabled hidden></option>
-                    <option value="teacher">Учтитель</option>
-                    <option value="housemaid">Уборщица</option>
-                    <option value="guard">Охранник</option>
-                </select>
-            </label>
-            <button type="submit">Добавить сотрудника</button>
-        </form>
+        <EmployeeForm {addEmployee} />
+    {/if}
+    {#if employeeList}
+        {#each employeeList as { name, position }}
+            <div class="Main-Employee">
+                <div><b>ФИО</b>: {name}</div>
+                <div><b>Должность</b>: {position}</div>
+            </div>
+        {/each}
     {/if}
 </main>
 
@@ -54,24 +72,11 @@
         margin-top: 5px;
     }
 
-    .Main-Input {
-        display: block;
-        margin-top: 10px;
-    }
-
-    .Main-Form {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 20px 0;
-    }
-
-    .Main-Label {
-        display: flex;
-        flex-direction: column;
-        text-align: start;
-    }
-
     .Main-AddButton {
         text-align: start;
+    }
+
+    .Main-Employee {
+        padding-bottom: 15px;
     }
 </style>
