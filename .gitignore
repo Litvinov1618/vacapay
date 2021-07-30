@@ -1,3 +1,5 @@
 /node_modules/
+# Comment it if you want to deploy 👇
+/public/build/
 
 .DS_Store

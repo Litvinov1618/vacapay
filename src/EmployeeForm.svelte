@@ -1,9 +1,35 @@
-<script lang="ts">
-    import type { Employee, Position } from './App.svelte'
+
+<!-- This feature is disabled because of low priority -->
+
+<!-- <script lang="ts">
+    import type { Employee, PositionType } from './App.svelte'
 
     export let addEmployee: (newEmployee: Employee) => void
 
-    let name: string, position: Position
+    const positions = [
+        {
+            positionType: 'Вчитель',
+            vacationDays: 56,
+        },
+        {
+            positionType: 'Адміністрація',
+            vacationDays: 56,
+        },
+        {
+            vacationType: 'Допоміжний персонал',
+            vacationDays: 56
+        },
+        {
+            vacationType: 'Технічний персонал',
+            vacationDays: 31,
+        },
+        {
+            vacationType: 'Обслуговуючий персонал',
+            vacationDays: 24,
+        }
+    ]
+
+    let name: string, position: PositionType
 
     const handleFormSubmit = (event: Event) => {
         event.preventDefault()
@@ -13,25 +39,30 @@
 
 <form action="submit" on:submit={handleFormSubmit} class="Main-Form">
     <label class="Main-Label">
-        ФИО сотрудника
+        ПІБ Працівника
         <input
             type="text"
             class="Main-Input"
-            placeholder="Пупкин Василий Василиевич"
             bind:value={name}
             required
         >
     </label>
     <label class="Main-Label">
-        Должность
+        Посада
+        <input
+            type="text"
+            class="Main-Input"
+            bind:value={name}
+            required
+        >
+    </label>
+    <label class="Main-Label">
+        Тип посади
         <select class="Main-Input" bind:value={position} required>
             <option value="" selected disabled hidden></option>
-            <option value="Учитель">Учтитель</option>
-            <option value="Уборщица">Уборщица</option>
-            <option value="Охранник">Охранник</option>
         </select>
     </label>
-    <button type="submit">Добавить сотрудника</button>
+    <button type="submit">Додати працівника до бази</button>
 </form>
 
 <style>
@@ -51,4 +82,4 @@
         flex-direction: column;
         text-align: start;
     }
-</style>
+</style> -->

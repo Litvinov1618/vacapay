@@ -1,50 +1,109 @@
 <script lang="ts">
-    import EmployeeForm from './EmployeeForm.svelte'
-
-    let isAddEmployeeFormOpened = false
-
-    let employeeList: Array<Employee> = [
+    let employeeList: EmployeeList = [
         {
-            name: 'Пупкин Василий Василиевич',
-            position: 'Охранник',
+            name: 'Мятович Ірина Володимирівна',
+            employeeType: 'Адміністрація',
+            position: 'Директор',
+            vacations: [
+                {
+                    type: 'Основна',
+                    isPaid: true,
+                    vacationDays: 56,
+                    totalDays: 56,
+                },
+                {
+                    type: 'За бажанням працівника',
+                    isPaid: false,
+                    vacationDays: 2,
+                    totalDays: 2,
+                }
+            ]
         },
         {
-            name: 'Александровна Александра Александровна',
-            position: 'Учитель',
-        }
+            name: 'Давиденко Іван Олександрович',
+            position: 'Вчитель української мови та літератури',
+            employeeType: 'Вчитель',
+            vacations: [
+                {
+                    type: 'Основна',
+                    isPaid: true,
+                    vacationDays: 56,
+                    totalDays: 56,
+                },
+                {
+                    type: 'Соціальна',
+                    isPaid: true,
+                    vacationDays: 10,
+                    totalDays: 10,
+                }
+            ]
+        },
     ]
 
-    const addEmployee = (newEmployee: Employee) => {
-        employeeList = [...employeeList, newEmployee]
-        isAddEmployeeFormOpened = false
+    const deductVacationPay = (name: string, selectedVacation: Vacation) => {
+        const daysToDeduct = window.prompt(`На скільки днів ${name} бере відпустку?`);
+
+        if (+daysToDeduct > selectedVacation.vacationDays) {
+            alert('Кільіксть днів більша допустимої')
+            return
+        }
+
+        if (daysToDeduct === '' || isNaN(+daysToDeduct)) {
+            alert('Ви маєте передати число')
+            return
+        }
+
+        const newEmployeeList = employeeList.map(employee => {
+            if (employee.name !== name) return employee
+            return { ...employee, vacations: employee.vacations.map(vacation => {
+                if (vacation.type !== selectedVacation.type) return vacation
+                return { ...vacation, vacationDays: vacation.vacationDays - +daysToDeduct }
+            })}
+        })
+
+        employeeList = newEmployeeList
     }
 </script>
 
 <script context="module" lang="ts">
-    export type Position = 'Учитель' | 'Уборщица' | 'Охранник'
+    export type EmployeeType = 'Вчитель' | 'Адміністрація' | 'Допоміжний персонал' | 'Технічний персонал' | 'Обслуговуючий персонал'
+    export type VacationType = 'Основна'| 'За особливий характер праці' | 'Соціальна' | 'За бажанням працівника' | 'За згодою сторін'
 
+    export type Vacation = {
+        type: VacationType
+        isPaid: boolean
+        vacationDays: number
+        totalDays: number
+    }
     export interface Employee {
         name: string
-        position: Position
+        position: string
+        employeeType: EmployeeType
+        vacations: Array<Vacation>
     }
+
+    export type EmployeeList = Array<Employee>;
 </script>
 
 <main class="Main">
     <h1 class="Main-Header">Vacapay alfa</h1>
-    <button
-        on:click={() => isAddEmployeeFormOpened = true}
-        class="Main-AddButton"
-    >
-        Добавить нового сотрудника
-    </button>
-    {#if isAddEmployeeFormOpened}
-        <EmployeeForm {addEmployee} />
-    {/if}
     {#if employeeList}
-        {#each employeeList as { name, position }}
+        {#each employeeList as employee}
             <div class="Main-Employee">
-                <div><b>ФИО</b>: {name}</div>
-                <div><b>Должность</b>: {position}</div>
+                <div><b>ПІБ</b>: {employee.name}</div>
+                <div><b>Посада</b>: {employee.position}</div>
+                <div style="padding: 10px 0; border-bottom: 1px solid black"><b>Відпустки</b>:</div>
+                {#each employee.vacations as vacation}
+                    <div>
+                        <b>{vacation.type}</b>: {vacation.vacationDays} з {vacation.totalDays} днів
+                        {#if vacation.isPaid}
+                            (Оплачувана)
+                            {:else}
+                            (Неоплачувана)
+                        {/if}
+                        <button on:click={() => deductVacationPay(employee.name, vacation)}>Відняти відпускні</button>
+                    </div>
+                {/each}
             </div>
         {/each}
     {/if}
@@ -72,11 +131,11 @@
         margin-top: 5px;
     }
 
-    .Main-AddButton {
-        text-align: start;
-    }
 
     .Main-Employee {
-        padding-bottom: 15px;
+        padding: 15px;
+        text-align: start;
+        border: 2px solid green;
+        margin-bottom: 15px;
     }
 </style>
