@@ -1,46 +1,9 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
+import EmployeeForm from './EmployeeForm.svelte';
+    import { employeeList as initialEmployeeList } from './employeeList';
 
-    let employeeList: EmployeeList = [
-        {
-            name: 'Мятович Ірина Володимирівна',
-            employeeType: 'Адміністрація',
-            position: 'Директор',
-            vacations: [
-                {
-                    type: 'Основна',
-                    isPaid: true,
-                    vacationDays: 56,
-                    totalDays: 56,
-                },
-                {
-                    type: 'За бажанням працівника',
-                    isPaid: false,
-                    vacationDays: 2,
-                    totalDays: 2,
-                },
-            ],
-        },
-        {
-            name: 'Давиденко Іван Олександрович',
-            position: 'Вчитель української мови та літератури',
-            employeeType: 'Вчитель',
-            vacations: [
-                {
-                    type: 'Основна',
-                    isPaid: true,
-                    vacationDays: 56,
-                    totalDays: 56,
-                },
-                {
-                    type: 'Соціальна',
-                    isPaid: true,
-                    vacationDays: 10,
-                    totalDays: 10,
-                }
-            ],
-        },
-    ]
+    let employeeList: EmployeeList = initialEmployeeList as EmployeeList
 
     const changeEmployeeVacationDays =
         (selectedEmployee: EmployeeData, selectedVacation: Vacation, daysToDeduct: number) => {
@@ -54,6 +17,21 @@
 
         employeeList = newEmployeeList
     }
+
+    let currentFilter: (value: EmployeeData) => boolean = () => false
+
+    const getEmployeeTypes = (employeeList: EmployeeList) => {
+        const employeeTypes = []
+        employeeList.map(
+            employee => !employeeTypes.includes(employee.employeeType) && employeeTypes.push(employee.employeeType)
+        )
+
+        return employeeTypes
+    }
+
+    $: filteredEmployeeList = employeeList.filter(currentFilter)
+
+    let isEmployeeFormShown = false
 </script>
 
 <script context="module" lang="ts">
@@ -79,7 +57,32 @@
 
 <main class="Main">
     <h1 class="Main-Header">Vacapay alfa</h1>
-    {#each employeeList as employee}
+    <div>
+        <button
+            on:click={() => isEmployeeFormShown = true}
+            style="background: CadetBlue; border: none;"
+        >
+            Додати працівника
+        </button>
+        {#if isEmployeeFormShown}
+            <EmployeeForm
+                onAddEmployee={(newEmployee) => {
+                    employeeList = [...employeeList, newEmployee]
+                    isEmployeeFormShown = false
+                }}
+                employeeTypes={getEmployeeTypes(employeeList)}
+            />
+        {/if}
+    </div>
+    {#each getEmployeeTypes(employeeList) as filter}
+        <button
+            on:click={() => currentFilter = (value) => value.employeeType === filter}
+            class="Main-Filter"
+        >
+            {filter}
+        </button>
+    {/each}
+    {#each filteredEmployeeList as employee (employee.name)}
         <Employee employee={employee} changeEmployeeVacationDays={changeEmployeeVacationDays} />
     {/each}
 </main>
@@ -106,4 +109,7 @@
         margin-top: 5px;
     }
 
+    .Main-Filter {
+        margin: 2px;
+    }
 </style>
