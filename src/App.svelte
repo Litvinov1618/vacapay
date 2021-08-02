@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Employee from './Employee.svelte'
+
     let employeeList: EmployeeList = [
         {
             name: 'Мятович Ірина Володимирівна',
@@ -16,8 +18,8 @@
                     isPaid: false,
                     vacationDays: 2,
                     totalDays: 2,
-                }
-            ]
+                },
+            ],
         },
         {
             name: 'Давиденко Іван Олександрович',
@@ -36,28 +38,17 @@
                     vacationDays: 10,
                     totalDays: 10,
                 }
-            ]
+            ],
         },
     ]
 
-    const deductVacationPay = (name: string, selectedVacation: Vacation) => {
-        const daysToDeduct = window.prompt(`На скільки днів ${name} бере відпустку?`);
-
-        if (+daysToDeduct > selectedVacation.vacationDays) {
-            alert('Кільіксть днів більша допустимої')
-            return
-        }
-
-        if (daysToDeduct === '' || isNaN(+daysToDeduct)) {
-            alert('Ви маєте передати число')
-            return
-        }
-
+    const changeEmployeeVacationDays =
+        (selectedEmployee: EmployeeData, selectedVacation: Vacation, daysToDeduct: number) => {
         const newEmployeeList = employeeList.map(employee => {
-            if (employee.name !== name) return employee
+            if (employee.name !== selectedEmployee.name) return employee
             return { ...employee, vacations: employee.vacations.map(vacation => {
                 if (vacation.type !== selectedVacation.type) return vacation
-                return { ...vacation, vacationDays: vacation.vacationDays - +daysToDeduct }
+                return { ...vacation, vacationDays: vacation.vacationDays - daysToDeduct }
             })}
         })
 
@@ -75,38 +66,22 @@
         vacationDays: number
         totalDays: number
     }
-    export interface Employee {
+
+    export interface EmployeeData {
         name: string
         position: string
         employeeType: EmployeeType
         vacations: Array<Vacation>
     }
 
-    export type EmployeeList = Array<Employee>;
+    export type EmployeeList = Array<EmployeeData>;
 </script>
 
 <main class="Main">
     <h1 class="Main-Header">Vacapay alfa</h1>
-    {#if employeeList}
-        {#each employeeList as employee}
-            <div class="Main-Employee">
-                <div><b>ПІБ</b>: {employee.name}</div>
-                <div><b>Посада</b>: {employee.position}</div>
-                <div style="padding: 10px 0; border-bottom: 1px solid black"><b>Відпустки</b>:</div>
-                {#each employee.vacations as vacation}
-                    <div>
-                        <b>{vacation.type}</b>: {vacation.vacationDays} з {vacation.totalDays} днів
-                        {#if vacation.isPaid}
-                            (Оплачувана)
-                            {:else}
-                            (Неоплачувана)
-                        {/if}
-                        <button on:click={() => deductVacationPay(employee.name, vacation)}>Відняти відпускні</button>
-                    </div>
-                {/each}
-            </div>
-        {/each}
-    {/if}
+    {#each employeeList as employee}
+        <Employee employee={employee} changeEmployeeVacationDays={changeEmployeeVacationDays} />
+    {/each}
 </main>
 
 <style>
@@ -131,11 +106,4 @@
         margin-top: 5px;
     }
 
-
-    .Main-Employee {
-        padding: 15px;
-        text-align: start;
-        border: 2px solid green;
-        margin-bottom: 15px;
-    }
 </style>
