@@ -1,7 +1,7 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
-import EmployeeForm from './EmployeeForm.svelte';
-    import { employeeList as initialEmployeeList } from './employeeList';
+    import EmployeeForm from './EmployeeForm.svelte'
+    import { employeeList as initialEmployeeList } from './employeeList'
 
     let employeeList: EmployeeList = initialEmployeeList as EmployeeList
 
@@ -18,18 +18,28 @@ import EmployeeForm from './EmployeeForm.svelte';
         employeeList = newEmployeeList
     }
 
-    let currentFilter: (value: EmployeeData) => boolean = () => false
-
     const getEmployeeTypes = (employeeList: EmployeeList) => {
         const employeeTypes = []
-        employeeList.map(
-            employee => !employeeTypes.includes(employee.employeeType) && employeeTypes.push(employee.employeeType)
-        )
+        employeeList
+            .map(employee =>
+                !employeeTypes.includes(employee.employeeType) && employeeTypes.push(employee.employeeType)
+            )
 
         return employeeTypes
     }
 
-    $: filteredEmployeeList = employeeList.filter(currentFilter)
+    let employeeTypeFilter = ''
+    let employeeNameFilter = ''
+
+    $: filteredEmployeeList = employeeList
+        .filter((value) => {
+            if (employeeNameFilter) {
+                value.employeeType === employeeTypeFilter && value.name === employeeNameFilter
+            }
+
+            return value.employeeType === employeeTypeFilter
+        })
+        .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
     let isEmployeeFormShown = false
 </script>
@@ -60,7 +70,7 @@ import EmployeeForm from './EmployeeForm.svelte';
     <div>
         <button
             on:click={() => isEmployeeFormShown = true}
-            style="background: CadetBlue; border: none;"
+            style="background: CadetBlue"
         >
             Додати працівника
         </button>
@@ -69,6 +79,7 @@ import EmployeeForm from './EmployeeForm.svelte';
                 onAddEmployee={(newEmployee) => {
                     employeeList = [...employeeList, newEmployee]
                     isEmployeeFormShown = false
+                    employeeTypeFilter = newEmployee.employeeType
                 }}
                 employeeTypes={getEmployeeTypes(employeeList)}
             />
@@ -76,8 +87,9 @@ import EmployeeForm from './EmployeeForm.svelte';
     </div>
     {#each getEmployeeTypes(employeeList) as filter}
         <button
-            on:click={() => currentFilter = (value) => value.employeeType === filter}
+            on:click={() => employeeTypeFilter = filter}
             class="Main-Filter"
+            style={filter === employeeTypeFilter ? 'border: 1px solid #15bd2e;' : ''}
         >
             {filter}
         </button>
