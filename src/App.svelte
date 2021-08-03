@@ -34,7 +34,8 @@
     $: filteredEmployeeList = employeeList
         .filter((value) => {
             if (employeeNameFilter) {
-                value.employeeType === employeeTypeFilter && value.name === employeeNameFilter
+                return value.employeeType === employeeTypeFilter &&
+                    value.name.toLocaleLowerCase().includes(employeeNameFilter.toLocaleLowerCase())
             }
 
             return value.employeeType === employeeTypeFilter
@@ -85,15 +86,22 @@
             />
         {/if}
     </div>
-    {#each getEmployeeTypes(employeeList) as filter}
-        <button
-            on:click={() => employeeTypeFilter = filter}
-            class="Main-Filter"
-            style={filter === employeeTypeFilter ? 'border: 1px solid #15bd2e;' : ''}
-        >
-            {filter}
-        </button>
-    {/each}
+    <div class="Main-Filters">
+        {#each getEmployeeTypes(employeeList) as filter}
+            <button
+                on:click={() => employeeTypeFilter = filter}
+                class="Main-Filter"
+                style={filter === employeeTypeFilter ? 'border: 1px solid #15bd2e;' : ''}
+            >
+                {filter}
+            </button>
+        {/each}
+    </div>
+    {#if filteredEmployeeList.length}
+        <div>
+            <label>Знайти працівника: <input type="text" bind:value={employeeNameFilter}></label>
+        </div>
+    {/if}
     {#each filteredEmployeeList as employee (employee.name)}
         <Employee employee={employee} changeEmployeeVacationDays={changeEmployeeVacationDays} />
     {/each}
@@ -103,14 +111,11 @@
     .Main {
         text-align: center;
         padding: 1em;
-        max-width: 240px;
         margin: 0 auto;
     }
 
-    @media (min-width: 640px) {
-        .Main {
-            max-width: none;
-        }
+    .Main-Filters {
+        padding: 10px;
     }
 
     .Main-Header {
