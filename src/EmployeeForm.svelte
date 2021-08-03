@@ -1,19 +1,18 @@
 
 <script lang="ts">
-    import type { EmployeeData, EmployeeType } from './App.svelte'
-
     export let onAddEmployee: (newEmployee: EmployeeData) => void
     export let employeeTypes: Array<EmployeeType>
 
+    import type { EmployeeData, EmployeeType } from './App.svelte'
+
     let name: string, employeeType: EmployeeType, position: string
 
-    const handleFormSubmit = (event: Event) => {
-        event.preventDefault()
+    const handleFormSubmit = () => {
         if (name && employeeType && position) onAddEmployee({ name, employeeType, position, vacations: [] })
     }
 </script>
 
-<form action="submit" on:submit={handleFormSubmit} class="EmployeeForm">
+<form action="submit" on:submit|preventDefault={handleFormSubmit} class="EmployeeForm">
     <label class="EmployeeForm-Label">
         ПІБ Працівника
         <input

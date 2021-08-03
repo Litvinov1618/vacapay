@@ -43,6 +43,9 @@
         .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
     let isEmployeeFormShown = false
+
+    const removeEmployee = (employeeToRemove: EmployeeData) =>
+        employeeList = employeeList.filter(employee => JSON.stringify(employee) !== JSON.stringify(employeeToRemove))
 </script>
 
 <script context="module" lang="ts">
@@ -103,7 +106,11 @@
         </div>
     {/if}
     {#each filteredEmployeeList as employee (employee.name)}
-        <Employee employee={employee} changeEmployeeVacationDays={changeEmployeeVacationDays} />
+        <Employee
+            employee={employee}
+            changeEmployeeVacationDays={changeEmployeeVacationDays}
+            removeEmployee={removeEmployee}
+        />
     {/each}
 </main>
 
