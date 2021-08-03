@@ -3,6 +3,7 @@
     export let changeEmployeeVacationDays:
         (selectedEmployee: EmployeeData, selectedVacation: Vacation, daysToDeduct: number) => void
     export let removeEmployee: (employeeToRemove: EmployeeData) => void
+    export let changeEmployeeInfo: (employeeToChange: EmployeeData , newEmployeeInfo: EmployeeData) => void
 
     import AngleRight from './AngleRight.svelte'
     import type { EmployeeData, Vacation } from './App.svelte'
@@ -24,13 +25,26 @@
 
         changeEmployeeVacationDays(selectedEmployee, selectedVacation, +daysToDeduct)
     }
+
+    const handleInfoChange = (infoType: 'name' | 'position', defaultValue: string) => {
+        const isName = infoType === 'name'
+
+        const newInfo = prompt(isName ? 'ПІБ' : 'Посада', defaultValue)
+
+        if (!newInfo) return
+
+        const newEmployeeInfo =
+            { ...employee, name: isName ? newInfo : employee.name, position: isName ? employee.position : newInfo }
+
+        changeEmployeeInfo(employee, newEmployeeInfo)
+    }
 </script>
 
 <div class="Employee">
     <div class="Employee-Header" on:click={() => isEmployeeContentOpened = !isEmployeeContentOpened}>
         <div class="Employee-HeaderInfo">
-            <div><b>ПІБ</b>: {employee.name}</div>
-            <div><b>Посада</b>: {employee.position}</div>
+            <div on:dblclick={() => handleInfoChange('name', employee.name)}><b>ПІБ</b>: {employee.name}</div>
+            <div on:dblclick={() => handleInfoChange('position', employee.position)}><b>Посада</b>: {employee.position}</div>
         </div>
         <AngleRight isDropped={isEmployeeContentOpened} />
     </div>

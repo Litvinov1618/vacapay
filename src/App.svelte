@@ -46,6 +46,16 @@
 
     const removeEmployee = (employeeToRemove: EmployeeData) =>
         employeeList = employeeList.filter(employee => JSON.stringify(employee) !== JSON.stringify(employeeToRemove))
+
+    const changeEmployeeInfo = (employeeToChange: EmployeeData, newEmployee: EmployeeData) => {
+        employeeList = employeeList.map(employee => {
+            if (JSON.stringify(employee) === JSON.stringify(employeeToChange)) {
+                return newEmployee
+            }
+
+            return employee
+        })
+    }
 </script>
 
 <script context="module" lang="ts">
@@ -110,6 +120,7 @@
             employee={employee}
             changeEmployeeVacationDays={changeEmployeeVacationDays}
             removeEmployee={removeEmployee}
+            changeEmployeeInfo={changeEmployeeInfo}
         />
     {/each}
 </main>
