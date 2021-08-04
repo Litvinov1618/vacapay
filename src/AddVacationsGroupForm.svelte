@@ -1,0 +1,52 @@
+<script lang="ts">
+    export let employee: EmployeeData
+
+    import type { EmployeeData, VacationType } from './types'
+    import { employeeList } from './stores'
+
+    const vacationTypes = [
+        'Основна',
+        'За особливий характер праці',
+        'Соціальна',
+        'За бажанням працівника',
+        'За згодою сторін',
+    ]
+
+    let isAddVacationGroupFormShown = false
+
+    let totalDays: number, isPaid: boolean, vacationType: VacationType
+
+    const handleNewVacationsGroupSubmit = () => {
+        employeeList.addVacationsGroup(employee, {
+            isPaid: !!isPaid,
+            type: vacationType,
+            vacationDays: totalDays,
+            totalDays,
+        })
+
+        isAddVacationGroupFormShown = false
+    }
+</script>
+
+{#if !isAddVacationGroupFormShown}
+    <div>
+        <button on:click={() => isAddVacationGroupFormShown = true}>Додати новий тип відпустки</button>
+    </div>
+{/if}
+{#if isAddVacationGroupFormShown}
+    <form action="submit" on:submit|preventDefault={handleNewVacationsGroupSubmit}>
+        <select bind:value={vacationType}>
+            {#each vacationTypes as type}
+                <option value={type}>{type}</option>
+            {/each}
+        </select>
+        <input type="number" placeholder="Кількість днів" bind:value={totalDays}>
+        <label style="display: inline;">
+            <input type="checkbox" bind:checked={isPaid}>
+            Оплачувана
+        </label>
+        <div>
+            <button type="submit">Додати</button>
+        </div>
+    </form>
+{/if}

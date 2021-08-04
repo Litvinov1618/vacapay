@@ -1,35 +1,14 @@
 <script type="ts">
     export let employee: EmployeeData
-    export let changeEmployeeVacationDays:
-        (selectedEmployee: EmployeeData, selectedVacation: Vacation, daysToDeduct: number) => void
-    export let removeEmployee: (employeeToRemove: EmployeeData) => void
-    export let changeEmployeeInfo: (employeeToChange: EmployeeData , newEmployeeInfo: EmployeeData) => void
-    export let changeEmployeeTotalVacationDays:
-        (selectedEmployee: EmployeeData, selectedVacation: Vacation, newDefaultVacationDays: number) => void
 
     import AngleRightIcon from './AngleRightIcon.svelte'
     import TrashIcon from './TrashIcon.svelte'
-    import type { EmployeeData, Vacation } from './types'
+    import type { EmployeeData } from './types'
+    import Vacations from './Vacations.svelte'
+    import { employeeList } from './stores'
 
     let isEmployeeContentOpened = false
-
-    const deductVacationPay = (selectedEmployee: EmployeeData, selectedVacation: Vacation) => {
-        const daysToDeduct = window.prompt(`На скільки днів ${selectedEmployee.name} бере відпустку?`)
-
-        if (!daysToDeduct) return
-
-        if (+daysToDeduct > selectedVacation.vacationDays) {
-            alert('Кільіксть днів більша допустимої')
-            deductVacationPay(selectedEmployee, selectedVacation)
-        }
-
-        if (daysToDeduct === '' || isNaN(+daysToDeduct)) {
-            alert('Ви маєте передати число')
-            deductVacationPay(selectedEmployee, selectedVacation)
-        }
-
-        changeEmployeeVacationDays(selectedEmployee, selectedVacation, +daysToDeduct)
-    }
+    const { changeEmployeeInfo, removeEmployee } = employeeList
 
     const handleInfoChange = (infoType: 'name' | 'position') => {
         const isName = infoType === 'name'
@@ -43,19 +22,6 @@
             position: isName ? employee.position : newInfo
         })
     }
-
-    const handleTotalVacationDaysChange = (vacation: Vacation) => {
-        const newTotalVacationDays = prompt(vacation.type, vacation.totalDays.toLocaleString())
-
-        if (!newTotalVacationDays) return
-
-        if (newTotalVacationDays === '' || isNaN(+newTotalVacationDays)) {
-            alert('Ви маєте передати число')
-            handleTotalVacationDaysChange(vacation)
-        }
-
-        changeEmployeeTotalVacationDays(employee, vacation, +newTotalVacationDays)
-    }
 </script>
 
 <div class="Employee">
@@ -68,17 +34,7 @@
     </div>
     <div hidden={!isEmployeeContentOpened} class="Employee-Vacations">
         <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
-        {#each employee.vacations as vacation}
-            <div on:dblclick={() => handleTotalVacationDaysChange(vacation)}>
-                <b>{vacation.type}</b>: {vacation.vacationDays} з {vacation.totalDays} днів
-                {#if vacation.isPaid}
-                    (Оплачувана)
-                    {:else}
-                    (Неоплачувана)
-                {/if}
-                <button on:click={() => deductVacationPay(employee, vacation)}>Відняти відпускні</button>
-            </div>
-        {/each}
+        <Vacations employee={employee} />
         <button on:click={() => removeEmployee(employee)} class="Employee-Button">
             <TrashIcon />
         </button>
