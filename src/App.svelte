@@ -1,37 +1,22 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
     import EmployeeForm from './EmployeeForm.svelte'
-    import { employeeList as initialEmployeeList } from './employeeList'
+    import employeeList from './stores'
 
-    let employeeList: EmployeeList = initialEmployeeList as EmployeeList
+    let employeeTypeFilter = ''
+    let employeeNameFilter = ''
 
-    const changeEmployeeVacationDays =
-        (selectedEmployee: EmployeeData, selectedVacation: Vacation, daysToDeduct: number) => {
-        const newEmployeeList = employeeList.map(employee => {
-            if (employee.name !== selectedEmployee.name) return employee
-            return { ...employee, vacations: employee.vacations.map(vacation => {
-                if (vacation.type !== selectedVacation.type) return vacation
-                return { ...vacation, vacationDays: vacation.vacationDays - daysToDeduct }
-            })}
-        })
-
-        employeeList = newEmployeeList
-    }
-
-    const getEmployeeTypes = (employeeList: EmployeeList) => {
+    $: employeeTypes = (() => {
         const employeeTypes = []
-        employeeList
+        $employeeList
             .map(employee =>
                 !employeeTypes.includes(employee.employeeType) && employeeTypes.push(employee.employeeType)
             )
 
         return employeeTypes
-    }
+    })()
 
-    let employeeTypeFilter = ''
-    let employeeNameFilter = ''
-
-    $: filteredEmployeeList = employeeList
+    $: filteredEmployeeList = $employeeList
         .filter((value) => {
             if (employeeNameFilter) {
                 return value.employeeType === employeeTypeFilter &&
@@ -43,19 +28,6 @@
         .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
     let isEmployeeFormShown = false
-
-    const removeEmployee = (employeeToRemove: EmployeeData) =>
-        employeeList = employeeList.filter(employee => JSON.stringify(employee) !== JSON.stringify(employeeToRemove))
-
-    const changeEmployeeInfo = (employeeToChange: EmployeeData, newEmployee: EmployeeData) => {
-        employeeList = employeeList.map(employee => {
-            if (JSON.stringify(employee) === JSON.stringify(employeeToChange)) {
-                return newEmployee
-            }
-
-            return employee
-        })
-    }
 </script>
 
 <script context="module" lang="ts">
@@ -91,16 +63,16 @@
         {#if isEmployeeFormShown}
             <EmployeeForm
                 onAddEmployee={(newEmployee) => {
-                    employeeList = [...employeeList, newEmployee]
+                    employeeList.addEmployee(newEmployee)
                     isEmployeeFormShown = false
                     employeeTypeFilter = newEmployee.employeeType
                 }}
-                employeeTypes={getEmployeeTypes(employeeList)}
+                employeeTypes={employeeTypes}
             />
         {/if}
     </div>
     <div class="Main-Filters">
-        {#each getEmployeeTypes(employeeList) as filter}
+        {#each employeeTypes as filter}
             <button
                 on:click={() => employeeTypeFilter = filter}
                 class="Main-Filter"
@@ -118,9 +90,9 @@
     {#each filteredEmployeeList as employee (employee.name)}
         <Employee
             employee={employee}
-            changeEmployeeVacationDays={changeEmployeeVacationDays}
-            removeEmployee={removeEmployee}
-            changeEmployeeInfo={changeEmployeeInfo}
+            changeEmployeeVacationDays={employeeList.changeEmployeeVacationDays}
+            removeEmployee={employeeList.removeEmployee}
+            changeEmployeeInfo={employeeList.changeEmployeeInfo}
         />
     {/each}
 </main>

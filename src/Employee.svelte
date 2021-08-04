@@ -6,7 +6,7 @@
     export let changeEmployeeInfo: (employeeToChange: EmployeeData , newEmployeeInfo: EmployeeData) => void
 
     import AngleRight from './AngleRight.svelte'
-    import type { EmployeeData, Vacation } from './App.svelte'
+    import type { EmployeeData, Vacation } from './types'
 
     let isEmployeeContentOpened = false
 

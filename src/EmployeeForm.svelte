@@ -3,7 +3,7 @@
     export let onAddEmployee: (newEmployee: EmployeeData) => void
     export let employeeTypes: Array<EmployeeType>
 
-    import type { EmployeeData, EmployeeType } from './App.svelte'
+    import type { EmployeeData, EmployeeType } from './types'
 
     let name: string, employeeType: EmployeeType, position: string
 
