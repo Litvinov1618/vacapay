@@ -28,27 +28,13 @@
         .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
     let isEmployeeFormShown = false
-</script>
 
-<script context="module" lang="ts">
-    export type EmployeeType = 'Вчитель' | 'Адміністрація' | 'Допоміжний персонал' | 'Технічний персонал' | 'Обслуговуючий персонал'
-    export type VacationType = 'Основна'| 'За особливий характер праці' | 'Соціальна' | 'За бажанням працівника' | 'За згодою сторін'
-
-    export type Vacation = {
-        type: VacationType
-        isPaid: boolean
-        vacationDays: number
-        totalDays: number
-    }
-
-    export interface EmployeeData {
-        name: string
-        position: string
-        employeeType: EmployeeType
-        vacations: Array<Vacation>
-    }
-
-    export type EmployeeList = Array<EmployeeData>;
+    const {
+        changeEmployeeVacationDays,
+        removeEmployee,
+        changeEmployeeInfo,
+        changeEmployeeTotalVacationDays,
+    } = employeeList
 </script>
 
 <main class="Main">
@@ -82,7 +68,7 @@
             </button>
         {/each}
     </div>
-    {#if filteredEmployeeList.length}
+    {#if filteredEmployeeList.length || employeeNameFilter}
         <div>
             <label>Знайти працівника: <input type="text" bind:value={employeeNameFilter}></label>
         </div>
@@ -90,9 +76,10 @@
     {#each filteredEmployeeList as employee (employee.name)}
         <Employee
             employee={employee}
-            changeEmployeeVacationDays={employeeList.changeEmployeeVacationDays}
-            removeEmployee={employeeList.removeEmployee}
-            changeEmployeeInfo={employeeList.changeEmployeeInfo}
+            changeEmployeeVacationDays={changeEmployeeVacationDays}
+            removeEmployee={removeEmployee}
+            changeEmployeeInfo={changeEmployeeInfo}
+            changeEmployeeTotalVacationDays={changeEmployeeTotalVacationDays}
         />
     {/each}
 </main>

@@ -1,4 +1,4 @@
-export let employeeList = [
+const mockedEmployeeList = [
     {
         name: 'Давиденко Іван Олександрович',
         position: 'Вчитель української мови та літератури',
@@ -689,3 +689,6 @@ export let employeeList = [
         ],
     },
 ]
+
+
+export default mockedEmployeeList
