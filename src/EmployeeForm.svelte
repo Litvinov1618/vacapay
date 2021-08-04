@@ -1,8 +1,8 @@
 
 <script lang="ts">
     export let onAddEmployee: (newEmployee: EmployeeData) => void
-    export let employeeTypes: Array<EmployeeType>
 
+    import { employeeTypes } from './stores'
     import type { EmployeeData, EmployeeType } from './types'
 
     let name: string, employeeType: EmployeeType, position: string
@@ -35,7 +35,7 @@
         Тип посади
         <select class="EmployeeForm-Input" bind:value={employeeType} required>
             <option value="" selected disabled hidden></option>
-            {#each employeeTypes as employeeType}
+            {#each $employeeTypes as employeeType}
                 <option value={employeeType}>{employeeType}</option>
             {/each}
         </select>

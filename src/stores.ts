@@ -1,6 +1,6 @@
-import { writable } from 'svelte/store'
+import { derived, writable } from 'svelte/store'
 import mockedEmployeeList from './mockedEmployeeList'
-import type { EmployeeData, EmployeeList, Vacation } from './types'
+import type { EmployeeData, EmployeeList, EmployeeType, Vacation } from './types'
 
 const createEmployeeList = () => {
     const { subscribe, update } = writable(mockedEmployeeList as EmployeeList)
@@ -49,7 +49,24 @@ const createEmployeeList = () => {
                     })
                 ),
         addEmployee: (employeeToAdd: EmployeeData) => update(employeeList => [...employeeList, employeeToAdd]),
+        addVacationsGroup: (selectedEmployee: EmployeeData, newVacationsGroup: Vacation) => update(employeeList => {
+            const newEmployeeList = [ ...employeeList ]
+
+            newEmployeeList
+                .find(employee => JSON.stringify(employee) === JSON.stringify(selectedEmployee))
+                .vacations.push(newVacationsGroup)
+
+            return newEmployeeList
+        }),
     }
 }
 
-export default createEmployeeList()
+export const employeeList = createEmployeeList()
+
+export const employeeTypes = derived(employeeList, $employeeList => {
+    const employeeTypes: Array<EmployeeType> = []
+    $employeeList
+        .map(employee => !employeeTypes.includes(employee.employeeType) && employeeTypes.push(employee.employeeType))
+
+    return employeeTypes
+})

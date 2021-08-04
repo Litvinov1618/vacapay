@@ -1,20 +1,10 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
     import EmployeeForm from './EmployeeForm.svelte'
-    import employeeList from './stores'
+    import { employeeList, employeeTypes } from './stores'
 
     let employeeTypeFilter = ''
     let employeeNameFilter = ''
-
-    $: employeeTypes = (() => {
-        const employeeTypes = []
-        $employeeList
-            .map(employee =>
-                !employeeTypes.includes(employee.employeeType) && employeeTypes.push(employee.employeeType)
-            )
-
-        return employeeTypes
-    })()
 
     $: filteredEmployeeList = $employeeList
         .filter((value) => {
@@ -28,13 +18,6 @@
         .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
     let isEmployeeFormShown = false
-
-    const {
-        changeEmployeeVacationDays,
-        removeEmployee,
-        changeEmployeeInfo,
-        changeEmployeeTotalVacationDays,
-    } = employeeList
 </script>
 
 <main class="Main">
@@ -53,12 +36,11 @@
                     isEmployeeFormShown = false
                     employeeTypeFilter = newEmployee.employeeType
                 }}
-                employeeTypes={employeeTypes}
             />
         {/if}
     </div>
     <div class="Main-Filters">
-        {#each employeeTypes as filter}
+        {#each $employeeTypes as filter}
             <button
                 on:click={() => employeeTypeFilter = filter}
                 class="Main-Filter"
@@ -74,13 +56,7 @@
         </div>
     {/if}
     {#each filteredEmployeeList as employee (employee.name)}
-        <Employee
-            employee={employee}
-            changeEmployeeVacationDays={changeEmployeeVacationDays}
-            removeEmployee={removeEmployee}
-            changeEmployeeInfo={changeEmployeeInfo}
-            changeEmployeeTotalVacationDays={changeEmployeeTotalVacationDays}
-        />
+        <Employee employee={employee} />
     {/each}
 </main>
 
