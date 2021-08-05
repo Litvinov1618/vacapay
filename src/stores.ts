@@ -7,10 +7,13 @@ const createEmployeeList = () => {
 
     return {
         subscribe,
-        removeEmployee:
+        fireEmployee:
             (employeeToRemove: EmployeeData) =>
                 update(employeeList =>
-                    employeeList.filter(employee => JSON.stringify(employee) !== JSON.stringify(employeeToRemove))
+                    employeeList.map((employee: EmployeeData) => {
+                        if (JSON.stringify(employee) !== JSON.stringify(employeeToRemove)) return employee
+                        return { ...employee, employeeType: 'Звільнені' }
+                    })
                 ),
         changeEmployeeInfo:
             (employeeToChange: EmployeeData, newEmployeeInfo: EmployeeData) =>

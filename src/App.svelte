@@ -25,7 +25,7 @@
     <div>
         <button
             on:click={() => isEmployeeFormShown = true}
-            style="background: CadetBlue"
+            class="Main-AddEmployeeButton"
         >
             Додати працівника
         </button>
@@ -43,8 +43,11 @@
         {#each $employeeTypes as filter}
             <button
                 on:click={() => employeeTypeFilter = filter}
-                class="Main-Filter"
-                style={filter === employeeTypeFilter ? 'border: 1px solid #15bd2e;' : ''}
+                class={`Main-Filter ${filter === 'Звільнені' ? 'Main-Filter-Fired' : ''}`}
+                style={filter === employeeTypeFilter
+                    ? (filter === 'Звільнені' ? 'border-color: #bd1b15;' : 'border-color: #15bd2e;')
+                    : ''
+                }
             >
                 {filter}
             </button>
@@ -69,6 +72,8 @@
 
     .Main-Filters {
         padding: 10px;
+        display: flex;
+        justify-content: center;
     }
 
     .Main-Header {
@@ -81,5 +86,25 @@
 
     .Main-Filter {
         margin: 2px;
+    }
+
+    .Main-Filter-Fired {
+        order: 100;
+        margin-left: 10px;
+        position: relative;
+    }
+
+    .Main-Filter-Fired::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -7px;
+        width: 1px;
+        background-color: #ccc;
+    }
+
+    .Main-AddEmployeeButton {
+        background: CadetBlue;
     }
 </style>
