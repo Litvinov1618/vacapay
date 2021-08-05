@@ -8,7 +8,7 @@
     import { employeeList } from './stores'
 
     let isEmployeeContentOpened = false
-    const { changeEmployeeInfo, removeEmployee } = employeeList
+    const { changeEmployeeInfo, fireEmployee } = employeeList
 
     const handleInfoChange = (infoType: 'name' | 'position') => {
         const isName = infoType === 'name'
@@ -22,9 +22,11 @@
             position: isName ? employee.position : newInfo
         })
     }
+
+    const isFired = employee.employeeType === 'Звільнені'
 </script>
 
-<div class="Employee">
+<div class={`Employee ${isFired ? 'Employee-Fired' : ''}`}>
     <div class="Employee-Header" on:click={() => isEmployeeContentOpened = !isEmployeeContentOpened}>
         <div class="Employee-HeaderInfo">
             <div on:dblclick={() => handleInfoChange('name')}><b>ПІБ</b>: {employee.name}</div>
@@ -35,9 +37,16 @@
     <div hidden={!isEmployeeContentOpened} class="Employee-Vacations">
         <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
         <Vacations employee={employee} />
-        <button on:click={() => removeEmployee(employee)} class="Employee-Button">
-            <TrashIcon />
-        </button>
+        {#if !isFired}
+            <button
+                on:click={() => {
+                    confirm('Ви дійсно бажаєте звільнити цього працівника?') && fireEmployee(employee)
+                }}
+                class="Employee-Button"
+            >
+                <TrashIcon />
+            </button>
+        {/if}
     </div>
 </div>
 
@@ -46,6 +55,10 @@
         text-align: start;
         border: 2px solid #15bd2e;
         margin-bottom: 15px;
+    }
+
+    .Employee-Fired {
+        border-color: #bd1b15;
     }
 
     .Employee-Header {
