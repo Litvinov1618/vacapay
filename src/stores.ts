@@ -19,9 +19,7 @@ const createEmployeeList = () => {
             (employeeToChange: EmployeeData, newEmployeeInfo: EmployeeData) =>
                 update(employeeList =>
                     employeeList.map(employee => {
-                        if (JSON.stringify(employee) === JSON.stringify(employeeToChange)) {
-                            return newEmployeeInfo
-                        }
+                        if (JSON.stringify(employee) === JSON.stringify(employeeToChange)) return newEmployeeInfo
                         return employee
                     })
                 ),
@@ -61,6 +59,13 @@ const createEmployeeList = () => {
 
             return newEmployeeList
         }),
+        changeEmployeeType: (employeeToChange: EmployeeData, newEmployeeType: EmployeeType) =>
+            update(employeeList =>
+                employeeList.map(employee => {
+                    if (JSON.stringify(employee) !== JSON.stringify(employeeToChange)) return employee
+                    return { ...employee, employeeType: newEmployeeType }
+                })
+            )
     }
 }
 

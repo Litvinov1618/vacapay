@@ -5,7 +5,7 @@
     import TrashIcon from './TrashIcon.svelte'
     import type { EmployeeData } from './types'
     import Vacations from './Vacations.svelte'
-    import { employeeList } from './stores'
+    import { employeeList, employeeTypes } from './stores'
 
     let isEmployeeContentOpened = false
     const { changeEmployeeInfo, fireEmployee } = employeeList
@@ -23,7 +23,10 @@
         })
     }
 
+    const handleEmployeeTypeChange = event => employeeList.changeEmployeeType(employee, event.target.value)
+
     const isFired = employee.employeeType === 'Звільнені'
+    let isChangeEmployeeTypeFormShown = false
 </script>
 
 <div class={`Employee ${isFired ? 'Employee-Fired' : ''}`}>
@@ -38,10 +41,27 @@
         <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
         <Vacations employee={employee} />
         {#if !isFired}
+            {#if !isChangeEmployeeTypeFormShown}
             <button
-                on:click={() => {
-                    confirm('Ви дійсно бажаєте звільнити цього працівника?') && fireEmployee(employee)
-                }}
+                on:click={() => isChangeEmployeeTypeFormShown = true}
+            >
+                    Змінити категорію працівника
+                </button>
+            {/if}
+            {#if isChangeEmployeeTypeFormShown}
+                <select on:change={handleEmployeeTypeChange}>
+                    {#each $employeeTypes as employeeType}
+                        <option
+                            value={employeeType}
+                            selected={employee.employeeType === employeeType}
+                        >
+                            {employeeType}
+                        </option>
+                    {/each}
+                </select>
+            {/if}
+            <button
+                on:click={() => confirm('Ви дійсно бажаєте звільнити цього працівника?') && fireEmployee(employee)}
                 class="Employee-Button"
             >
                 <TrashIcon />
@@ -90,6 +110,7 @@
         padding: 4px;
         border-radius: 15px;
         margin: 0;
+        display: block;
     }
 
     .Employee-Button:hover {

@@ -18,7 +18,7 @@
 
     const handleNewVacationsGroupSubmit = () => {
         employeeList.addVacationsGroup(employee, {
-            isPaid: !!isPaid,
+            isPaid,
             type: vacationType,
             vacationDays: totalDays,
             totalDays,
@@ -42,8 +42,10 @@
         </select>
         <input type="number" placeholder="Кількість днів" bind:value={totalDays}>
         <label style="display: inline;">
-            <input type="checkbox" bind:checked={isPaid}>
-            Оплачувана
+            <select bind:value={isPaid}>
+                <option value={true}>Оплачувана</option>
+                <option value={false}>Неоплачувана</option>
+            </select>
         </label>
         <div>
             <button type="submit">Додати</button>
