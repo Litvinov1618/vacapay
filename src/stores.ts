@@ -12,7 +12,7 @@ const createEmployeeList = () => {
                 update(employeeList =>
                     employeeList.map((employee: EmployeeData) => {
                         if (JSON.stringify(employee) !== JSON.stringify(employeeToRemove)) return employee
-                        return { ...employee, employeeType: 'Звільнені' }
+                        return { ...employee, employeeType: 'fired' }
                     })
                 ),
         changeEmployeeInfo:
@@ -78,3 +78,10 @@ export const employeeTypes = derived(employeeList, $employeeList => {
 
     return employeeTypes
 })
+
+const createEmployeeTypeFilter = () => {
+    const { subscribe, set } = writable<EmployeeType | null>(null)
+    return { subscribe, setType: (newType: EmployeeType) => set(newType) }
+}
+
+export const employeeTypeFilter = createEmployeeTypeFilter()

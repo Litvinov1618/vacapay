@@ -3,13 +3,14 @@
 
     import type { EmployeeData, VacationType } from './types'
     import { employeeList } from './stores'
+    import translateEmployeeType from './translateVacationType'
 
-    const vacationTypes = [
-        'Основна',
-        'За особливий характер праці',
-        'Соціальна',
-        'За бажанням працівника',
-        'За згодою сторін',
+    const vacationTypes: Array<VacationType> = [
+        'main',
+        'forSpecialNatureOfWork',
+        'social',
+        'forEmployeeWish',
+        'byAgreement',
     ]
 
     let isAddVacationGroupFormShown = false
@@ -37,7 +38,7 @@
     <form action="submit" on:submit|preventDefault={handleNewVacationsGroupSubmit}>
         <select bind:value={vacationType}>
             {#each vacationTypes as type}
-                <option value={type}>{type}</option>
+                <option value={type}>{translateEmployeeType(type)}</option>
             {/each}
         </select>
         <input type="number" placeholder="Кількість днів" bind:value={totalDays}>

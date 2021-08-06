@@ -5,7 +5,8 @@
     import TrashIcon from './TrashIcon.svelte'
     import type { EmployeeData } from './types'
     import Vacations from './Vacations.svelte'
-    import { employeeList, employeeTypes } from './stores'
+    import { employeeList, employeeTypes, employeeTypeFilter } from './stores'
+    import translateEmployeeType from './translateEmployeeType'
 
     let isEmployeeContentOpened = false
     const { changeEmployeeInfo, fireEmployee } = employeeList
@@ -23,9 +24,12 @@
         })
     }
 
-    const handleEmployeeTypeChange = event => employeeList.changeEmployeeType(employee, event.target.value)
+    const handleEmployeeTypeChange = event => {
+        employeeList.changeEmployeeType(employee, event.target.value)
+        employeeTypeFilter.setType(event.target.value)
+    }
 
-    const isFired = employee.employeeType === 'Звільнені'
+    const isFired = employee.employeeType === 'fired'
     let isChangeEmployeeTypeFormShown = false
 </script>
 
@@ -55,7 +59,7 @@
                             value={employeeType}
                             selected={employee.employeeType === employeeType}
                         >
-                            {employeeType}
+                            {translateEmployeeType(employeeType)}
                         </option>
                     {/each}
                 </select>
