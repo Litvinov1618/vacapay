@@ -830,10 +830,10 @@ var app = (function () {
         {
             name: 'Давиденко Іван Олександрович',
             position: 'Вчитель української мови та літератури',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -843,10 +843,10 @@ var app = (function () {
         {
             name: 'Монько Ніна Дмитрівна',
             position: 'Вчитель російської мови та літератури"',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -856,10 +856,10 @@ var app = (function () {
         {
             name: 'Касярум Тетяна Володимирівна',
             position: 'Вчитель української мови та літератури',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -869,10 +869,10 @@ var app = (function () {
         {
             name: 'Біла Тетяна Петрівна',
             position: 'Вчитель української мови та літератури',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -882,10 +882,10 @@ var app = (function () {
         {
             name: 'Легка Юлія Миколаївна',
             position: 'Вчитель інформатики',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -895,10 +895,10 @@ var app = (function () {
         {
             name: 'Дятлова Олена Анатоліївна',
             position: 'Вчитель',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -908,10 +908,10 @@ var app = (function () {
         {
             name: 'Прохач Валентина Федорівна',
             position: 'Вчитель математики',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -921,10 +921,10 @@ var app = (function () {
         {
             name: 'Калмикова Вікторія Валеріївна',
             position: 'Вчитель математики',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -934,10 +934,10 @@ var app = (function () {
         {
             name: 'Уманська Тетяна Миколаївна',
             position: 'Вчитель фізики',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -947,10 +947,10 @@ var app = (function () {
         {
             name: 'Лазарєва Тетяна Петрівна',
             position: 'Вчитель хімії',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -960,10 +960,10 @@ var app = (function () {
         {
             name: 'Іголкіна Яна В’ячеславівна',
             position: 'Вчитель біології',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -973,10 +973,10 @@ var app = (function () {
         {
             name: 'Цьомко Віта Степанівна',
             position: 'Вчитель історії',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -986,10 +986,10 @@ var app = (function () {
         {
             name: 'Трубчанінова Тетяна Петрівна',
             position: 'Вчитель географії',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -999,10 +999,10 @@ var app = (function () {
         {
             name: 'Григор’єв Артем Сергійович',
             position: 'Вчитель фізичної культури',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1012,10 +1012,10 @@ var app = (function () {
         {
             name: 'Морозова Тетяна Михайлівна',
             position: 'Методист з профорієнтації',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 42,
                     totalDays: 42,
@@ -1025,10 +1025,10 @@ var app = (function () {
         {
             name: 'Перерва Світлана Вікторівна',
             position: 'Вчитель інформатики',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1038,10 +1038,10 @@ var app = (function () {
         {
             name: 'Щербина Ярослава Анатоліївна',
             position: 'Вчитель історії',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1051,10 +1051,10 @@ var app = (function () {
         {
             name: 'Вовк Ольга Вікторівна',
             position: 'Вчитель англійської мови',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1064,10 +1064,10 @@ var app = (function () {
         {
             name: 'Мазур Інна Сергіївна',
             position: 'Вчитель англійської мови',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1077,10 +1077,10 @@ var app = (function () {
         {
             name: 'Біда Юля Петрівна',
             position: 'Вчитель української мови та літератури',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1090,10 +1090,10 @@ var app = (function () {
         {
             name: 'Зайдуліна Вікторія Вікторівна',
             position: 'Вчитель англійської мови',
-            employeeType: 'Вчитель',
+            employeeType: 'teacher',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1103,10 +1103,10 @@ var app = (function () {
         {
             name: 'Мятович Ірина Володимирівна',
             position: 'Директор',
-            employeeType: 'Адміністрація',
+            employeeType: 'administration',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1116,10 +1116,10 @@ var app = (function () {
         {
             name: 'Смьордова Ольга Володимирівна',
             position: 'Заступник директора з НВР',
-            employeeType: 'Адміністрація',
+            employeeType: 'administration',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1129,10 +1129,10 @@ var app = (function () {
         {
             name: 'Бабаніна Ольга Петрівна',
             position: 'Заступник директора з НВР',
-            employeeType: 'Адміністрація',
+            employeeType: 'administration',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1142,10 +1142,10 @@ var app = (function () {
         {
             name: 'Дем’яник Олена Геннадіївна',
             position: 'Заступник директора з ВР',
-            employeeType: 'Адміністрація',
+            employeeType: 'administration',
             vacations: [
                 {
-                    type: 'Основна',
+                    type: 'main',
                     isPaid: true,
                     vacationDays: 56,
                     totalDays: 56,
@@ -1155,364 +1155,364 @@ var app = (function () {
         {
             name: 'Оріян Анастасія Олександрівна',
             position: 'Практичний психолог',
-            employeeType: 'Допоміжний персонал',
+            employeeType: 'supportStaff',
             vacations: [
                 {
                     totalDays: 56,
                     vacationDays: 56,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Качан Анастасія Романівна',
             position: 'Соціальний педагог',
-            employeeType: 'Допоміжний персонал',
+            employeeType: 'supportStaff',
             vacations: [
                 {
                     totalDays: 56,
                     vacationDays: 56,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Петрова Віра Вікторівна',
             position: 'Завідуюча господарством',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 31,
                     vacationDays: 31,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Школа Наталія Миколаївна',
             position: 'Інспектор з кадрів та діловодства',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 31,
                     vacationDays: 31,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Сухар Ольга Іванівна',
             position: 'Інженер з охорони праці',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 31,
                     vacationDays: 31,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Дузенко Яна Олегівна',
             position: 'Інженер-електронік',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 31,
                     vacationDays: 31,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Казаков Сергій Геннадійович',
             position: 'Робітник',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Порошина Марина Василівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Петрухіна Людмила Іванівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Олійник Тетяна Олександрівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Кодиця Валентина Іванівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Бондаренко Наталія Олександрівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Сагайдачна Валентина Олексіївна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Назаренко Юрій Михайлович',
             position: 'Сторож',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Дубогрій Анатолій Іванович',
             position: 'Сторож',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Чорний Костянтин Григорович',
             position: 'Сторож',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Пічуєва Марина Іванівна',
             position: 'Медична сестра',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Волошина Олена Леонідівна',
             position: 'Бібліотекар',
-            employeeType: 'Технічний персонал',
+            employeeType: 'technicalStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Казаков Сергій Геннадійович',
             position: 'Робітник',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Порошина Марина Василівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Петрухіна Людмила Іванівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Олійник Тетяна Олександрівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Кодиця Валентина Іванівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Бондаренко Наталія Олександрівна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Сагайдачна Валентина Олексіївна',
             position: 'Прибиральниця службових приміщень',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Назаренко Юрій Михайлович',
             position: 'Сторож',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Дубогрій Анатолій Іванович',
             position: 'Сторож',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
         {
             name: 'Чорний Костянтин Григорович',
             position: 'Сторож',
-            employeeType: 'Обслуговуючий персонал',
+            employeeType: 'serviceStaff',
             vacations: [
                 {
                     totalDays: 24,
                     vacationDays: 24,
                     isPaid: true,
-                    type: 'Основна',
+                    type: 'main',
                 },
             ],
         },
@@ -1525,7 +1525,7 @@ var app = (function () {
             fireEmployee: (employeeToRemove) => update(employeeList => employeeList.map((employee) => {
                 if (JSON.stringify(employee) !== JSON.stringify(employeeToRemove))
                     return employee;
-                return Object.assign(Object.assign({}, employee), { employeeType: 'Звільнені' });
+                return Object.assign(Object.assign({}, employee), { employeeType: 'fired' });
             })),
             changeEmployeeInfo: (employeeToChange, newEmployeeInfo) => update(employeeList => employeeList.map(employee => {
                 if (JSON.stringify(employee) === JSON.stringify(employeeToChange))
@@ -1572,6 +1572,21 @@ var app = (function () {
             .map(employee => !employeeTypes.includes(employee.employeeType) && employeeTypes.push(employee.employeeType));
         return employeeTypes;
     });
+    const createEmployeeTypeFilter = () => {
+        const { subscribe, set } = writable(null);
+        return { subscribe, setType: (newType) => set(newType) };
+    };
+    const employeeTypeFilter = createEmployeeTypeFilter();
+
+    const translateEmployeeType$1 = (employeeType) => {
+        switch (employeeType) {
+            case 'main': return 'Основна';
+            case 'forSpecialNatureOfWork': return 'За особливий характер праці';
+            case 'social': return 'Соціальна';
+            case 'forEmployeeWish': return 'За бажанням працівника';
+            case 'byAgreement': return 'За згодою сторін';
+        }
+    };
 
     /* src/AddVacationsGroupForm.svelte generated by Svelte v3.41.0 */
     const file$4 = "src/AddVacationsGroupForm.svelte";
@@ -1582,7 +1597,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (24:0) {#if !isAddVacationGroupFormShown}
+    // (25:0) {#if !isAddVacationGroupFormShown}
     function create_if_block_1$2(ctx) {
     	let div;
     	let button;
@@ -1594,8 +1609,8 @@ var app = (function () {
     			div = element("div");
     			button = element("button");
     			button.textContent = "Додати новий тип відпустки";
-    			add_location(button, file$4, 25, 8, 613);
-    			add_location(div, file$4, 24, 4, 599);
+    			add_location(button, file$4, 26, 8, 651);
+    			add_location(div, file$4, 25, 4, 637);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1618,14 +1633,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$2.name,
     		type: "if",
-    		source: "(24:0) {#if !isAddVacationGroupFormShown}",
+    		source: "(25:0) {#if !isAddVacationGroupFormShown}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (29:0) {#if isAddVacationGroupFormShown}
+    // (30:0) {#if isAddVacationGroupFormShown}
     function create_if_block$3(ctx) {
     	let form;
     	let select0;
@@ -1672,25 +1687,25 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Додати";
     			if (/*vacationType*/ ctx[3] === void 0) add_render_callback(() => /*select0_change_handler*/ ctx[8].call(select0));
-    			add_location(select0, file$4, 30, 8, 852);
+    			add_location(select0, file$4, 31, 8, 890);
     			attr_dev(input, "type", "number");
     			attr_dev(input, "placeholder", "Кількість днів");
-    			add_location(input, file$4, 35, 8, 1028);
+    			add_location(input, file$4, 36, 8, 1089);
     			option0.__value = true;
     			option0.value = option0.__value;
-    			add_location(option0, file$4, 38, 16, 1200);
+    			add_location(option0, file$4, 39, 16, 1261);
     			option1.__value = false;
     			option1.value = option1.__value;
-    			add_location(option1, file$4, 39, 16, 1257);
+    			add_location(option1, file$4, 40, 16, 1318);
     			if (/*isPaid*/ ctx[2] === void 0) add_render_callback(() => /*select1_change_handler*/ ctx[10].call(select1));
-    			add_location(select1, file$4, 37, 12, 1155);
+    			add_location(select1, file$4, 38, 12, 1216);
     			set_style(label, "display", "inline");
-    			add_location(label, file$4, 36, 8, 1110);
+    			add_location(label, file$4, 37, 8, 1171);
     			attr_dev(button, "type", "submit");
-    			add_location(button, file$4, 43, 12, 1366);
-    			add_location(div, file$4, 42, 8, 1348);
+    			add_location(button, file$4, 44, 12, 1427);
+    			add_location(div, file$4, 43, 8, 1409);
     			attr_dev(form, "action", "submit");
-    			add_location(form, file$4, 29, 4, 764);
+    			add_location(form, file$4, 30, 4, 802);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
@@ -1726,7 +1741,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*vacationTypes*/ 16) {
+    			if (dirty & /*vacationTypes, translateEmployeeType*/ 16) {
     				each_value = /*vacationTypes*/ ctx[4];
     				validate_each_argument(each_value);
     				let i;
@@ -1774,17 +1789,17 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(29:0) {#if isAddVacationGroupFormShown}",
+    		source: "(30:0) {#if isAddVacationGroupFormShown}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (32:12) {#each vacationTypes as type}
+    // (33:12) {#each vacationTypes as type}
     function create_each_block$4(ctx) {
     	let option;
-    	let t_value = /*type*/ ctx[11] + "";
+    	let t_value = translateEmployeeType$1(/*type*/ ctx[11]) + "";
     	let t;
 
     	const block = {
@@ -1793,7 +1808,7 @@ var app = (function () {
     			t = text(t_value);
     			option.__value = /*type*/ ctx[11];
     			option.value = option.__value;
-    			add_location(option, file$4, 32, 16, 945);
+    			add_location(option, file$4, 33, 16, 983);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -1809,7 +1824,7 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(32:12) {#each vacationTypes as type}",
+    		source: "(33:12) {#each vacationTypes as type}",
     		ctx
     	});
 
@@ -1891,15 +1906,7 @@ var app = (function () {
     	validate_slots('AddVacationsGroupForm', slots, []);
     	let { employee } = $$props;
     	
-
-    	const vacationTypes = [
-    		'Основна',
-    		'За особливий характер праці',
-    		'Соціальна',
-    		'За бажанням працівника',
-    		'За згодою сторін'
-    	];
-
+    	const vacationTypes = ['main', 'forSpecialNatureOfWork', 'social', 'forEmployeeWish', 'byAgreement'];
     	let isAddVacationGroupFormShown = false;
     	let totalDays, isPaid, vacationType;
 
@@ -1945,6 +1952,7 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		employee,
     		employeeList,
+    		translateEmployeeType: translateEmployeeType$1,
     		vacationTypes,
     		isAddVacationGroupFormShown,
     		totalDays,
@@ -2018,7 +2026,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (37:12) {:else}
+    // (38:12) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -2038,14 +2046,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(37:12) {:else}",
+    		source: "(38:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (35:8) {#if vacation.isPaid}
+    // (36:8) {#if vacation.isPaid}
     function create_if_block$2(ctx) {
     	let t;
 
@@ -2065,18 +2073,18 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(35:8) {#if vacation.isPaid}",
+    		source: "(36:8) {#if vacation.isPaid}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (32:0) {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}
+    // (33:0) {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}
     function create_each_block$3(key_1, ctx) {
     	let div;
     	let b;
-    	let t0_value = /*vacation*/ ctx[7].type + "";
+    	let t0_value = translateEmployeeType$1(/*vacation*/ ctx[7].type) + "";
     	let t0;
     	let t1;
     	let t2_value = /*vacation*/ ctx[7].vacationDays + "";
@@ -2122,9 +2130,9 @@ var app = (function () {
     			t6 = space();
     			button = element("button");
     			button.textContent = "Відняти відпускні";
-    			add_location(b, file$3, 33, 8, 1480);
-    			add_location(button, file$3, 39, 8, 1680);
-    			add_location(div, file$3, 32, 4, 1406);
+    			add_location(b, file$3, 34, 8, 1541);
+    			add_location(button, file$3, 40, 8, 1764);
+    			add_location(div, file$3, 33, 4, 1467);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -2151,7 +2159,7 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*employee*/ 1 && t0_value !== (t0_value = /*vacation*/ ctx[7].type + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*employee*/ 1 && t0_value !== (t0_value = translateEmployeeType$1(/*vacation*/ ctx[7].type) + "")) set_data_dev(t0, t0_value);
     			if (dirty & /*employee*/ 1 && t2_value !== (t2_value = /*vacation*/ ctx[7].vacationDays + "")) set_data_dev(t2, t2_value);
     			if (dirty & /*employee*/ 1 && t4_value !== (t4_value = /*vacation*/ ctx[7].totalDays + "")) set_data_dev(t4, t4_value);
 
@@ -2177,7 +2185,7 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(32:0) {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}",
+    		source: "(33:0) {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}",
     		ctx
     	});
 
@@ -2228,7 +2236,7 @@ var app = (function () {
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*handleTotalVacationDaysChange, employee, deductVacationPay*/ 7) {
+    			if (dirty & /*handleTotalVacationDaysChange, employee, deductVacationPay, translateVacationType*/ 7) {
     				each_value = /*employee*/ ctx[0].vacations;
     				validate_each_argument(each_value);
     				validate_each_keys(ctx, each_value, get_each_context$3, get_key);
@@ -2321,6 +2329,7 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		employeeList,
     		AddVacationsGroupForm,
+    		translateVacationType: translateEmployeeType$1,
     		employee,
     		changeEmployeeTotalVacationDays,
     		changeEmployeeVacationDays,
@@ -2374,6 +2383,17 @@ var app = (function () {
     	}
     }
 
+    const translateEmployeeType = (employeeType) => {
+        switch (employeeType) {
+            case 'administration': return 'Адміністрація';
+            case 'fired': return 'Звільнені';
+            case 'serviceStaff': return 'Обслуговуючий персонал';
+            case 'supportStaff': return 'Допоміжний персонал';
+            case 'teacher': return 'Вчителі';
+            case 'technicalStaff': return 'Технічний персонал';
+        }
+    };
+
     /* src/Employee.svelte generated by Svelte v3.41.0 */
 
     const { Object: Object_1 } = globals;
@@ -2385,7 +2405,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (32:8) {#if !isFired}
+    // (36:8) {#if !isFired}
     function create_if_block$1(ctx) {
     	let t0;
     	let t1;
@@ -2407,7 +2427,7 @@ var app = (function () {
     			button = element("button");
     			create_component(trashicon.$$.fragment);
     			attr_dev(button, "class", "Employee-Button svelte-10xfym5");
-    			add_location(button, file$2, 51, 12, 2399);
+    			add_location(button, file$2, 55, 12, 2560);
     		},
     		m: function mount(target, anchor) {
     			if (if_block0) if_block0.m(target, anchor);
@@ -2475,14 +2495,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(32:8) {#if !isFired}",
+    		source: "(36:8) {#if !isFired}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (33:12) {#if !isChangeEmployeeTypeFormShown}
+    // (37:12) {#if !isChangeEmployeeTypeFormShown}
     function create_if_block_2(ctx) {
     	let button;
     	let mounted;
@@ -2492,7 +2512,7 @@ var app = (function () {
     		c: function create() {
     			button = element("button");
     			button.textContent = "Змінити категорію працівника";
-    			add_location(button, file$2, 33, 12, 1699);
+    			add_location(button, file$2, 37, 12, 1837);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -2514,14 +2534,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(33:12) {#if !isChangeEmployeeTypeFormShown}",
+    		source: "(37:12) {#if !isChangeEmployeeTypeFormShown}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (40:12) {#if isChangeEmployeeTypeFormShown}
+    // (44:12) {#if isChangeEmployeeTypeFormShown}
     function create_if_block_1$1(ctx) {
     	let select;
     	let mounted;
@@ -2542,7 +2562,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(select, file$2, 40, 16, 1948);
+    			add_location(select, file$2, 44, 16, 2086);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, select, anchor);
@@ -2557,7 +2577,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$employeeTypes, employee*/ 9) {
+    			if (dirty & /*$employeeTypes, employee, translateEmployeeType*/ 9) {
     				each_value = /*$employeeTypes*/ ctx[3];
     				validate_each_argument(each_value);
     				let i;
@@ -2593,17 +2613,17 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(40:12) {#if isChangeEmployeeTypeFormShown}",
+    		source: "(44:12) {#if isChangeEmployeeTypeFormShown}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:20) {#each $employeeTypes as employeeType}
+    // (46:20) {#each $employeeTypes as employeeType}
     function create_each_block$2(ctx) {
     	let option;
-    	let t0_value = /*employeeType*/ ctx[14] + "";
+    	let t0_value = translateEmployeeType(/*employeeType*/ ctx[14]) + "";
     	let t0;
     	let t1;
     	let option_value_value;
@@ -2617,7 +2637,7 @@ var app = (function () {
     			option.__value = option_value_value = /*employeeType*/ ctx[14];
     			option.value = option.__value;
     			option.selected = option_selected_value = /*employee*/ ctx[0].employeeType === /*employeeType*/ ctx[14];
-    			add_location(option, file$2, 42, 24, 2077);
+    			add_location(option, file$2, 46, 24, 2215);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -2625,7 +2645,7 @@ var app = (function () {
     			append_dev(option, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$employeeTypes*/ 8 && t0_value !== (t0_value = /*employeeType*/ ctx[14] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$employeeTypes*/ 8 && t0_value !== (t0_value = translateEmployeeType(/*employeeType*/ ctx[14]) + "")) set_data_dev(t0, t0_value);
 
     			if (dirty & /*$employeeTypes*/ 8 && option_value_value !== (option_value_value = /*employeeType*/ ctx[14])) {
     				prop_dev(option, "__value", option_value_value);
@@ -2645,7 +2665,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(42:20) {#each $employeeTypes as employeeType}",
+    		source: "(46:20) {#each $employeeTypes as employeeType}",
     		ctx
     	});
 
@@ -2724,22 +2744,22 @@ var app = (function () {
     			create_component(vacations.$$.fragment);
     			t12 = space();
     			if (if_block) if_block.c();
-    			add_location(b0, file$2, 23, 62, 1202);
-    			add_location(div0, file$2, 23, 12, 1152);
-    			add_location(b1, file$2, 24, 66, 1302);
-    			add_location(div1, file$2, 24, 12, 1248);
+    			add_location(b0, file$2, 27, 62, 1340);
+    			add_location(div0, file$2, 27, 12, 1290);
+    			add_location(b1, file$2, 28, 66, 1440);
+    			add_location(div1, file$2, 28, 12, 1386);
     			attr_dev(div2, "class", "Employee-HeaderInfo svelte-10xfym5");
-    			add_location(div2, file$2, 22, 8, 1106);
+    			add_location(div2, file$2, 26, 8, 1244);
     			attr_dev(div3, "class", "Employee-Header svelte-10xfym5");
-    			add_location(div3, file$2, 21, 4, 1000);
-    			add_location(b2, file$2, 29, 46, 1549);
+    			add_location(div3, file$2, 25, 4, 1138);
+    			add_location(b2, file$2, 33, 46, 1687);
     			attr_dev(div4, "class", "Employee-VacationsHeader svelte-10xfym5");
-    			add_location(div4, file$2, 29, 8, 1511);
+    			add_location(div4, file$2, 33, 8, 1649);
     			div5.hidden = div5_hidden_value = !/*isEmployeeContentOpened*/ ctx[1];
     			attr_dev(div5, "class", "Employee-Vacations svelte-10xfym5");
-    			add_location(div5, file$2, 28, 4, 1436);
+    			add_location(div5, file$2, 32, 4, 1574);
     			attr_dev(div6, "class", "" + (null_to_empty(`Employee ${/*isFired*/ ctx[7] ? 'Employee-Fired' : ''}`) + " svelte-10xfym5"));
-    			add_location(div6, file$2, 20, 0, 936);
+    			add_location(div6, file$2, 24, 0, 1074);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2851,8 +2871,12 @@ var app = (function () {
     		}));
     	};
 
-    	const handleEmployeeTypeChange = event => employeeList.changeEmployeeType(employee, event.target.value);
-    	const isFired = employee.employeeType === 'Звільнені';
+    	const handleEmployeeTypeChange = event => {
+    		employeeList.changeEmployeeType(employee, event.target.value);
+    		employeeTypeFilter.setType(event.target.value);
+    	};
+
+    	const isFired = employee.employeeType === 'fired';
     	let isChangeEmployeeTypeFormShown = false;
     	const writable_props = ['employee'];
 
@@ -2877,6 +2901,8 @@ var app = (function () {
     		Vacations,
     		employeeList,
     		employeeTypes,
+    		employeeTypeFilter,
+    		translateEmployeeType,
     		isEmployeeContentOpened,
     		changeEmployeeInfo,
     		fireEmployee,
@@ -3313,7 +3339,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const employeeform_changes = {};
-    			if (dirty & /*isEmployeeFormShown, employeeTypeFilter*/ 5) employeeform_changes.onAddEmployee = /*func*/ ctx[7];
+    			if (dirty & /*isEmployeeFormShown*/ 4) employeeform_changes.onAddEmployee = /*func*/ ctx[7];
     			employeeform.$set(employeeform_changes);
     		},
     		i: function intro(local) {
@@ -3341,10 +3367,10 @@ var app = (function () {
     	return block;
     }
 
-    // (38:8) {#each $employeeTypes as filter}
+    // (38:8) {#each $employeeTypes as employeeType}
     function create_each_block_1(ctx) {
     	let button;
-    	let t0_value = /*filter*/ ctx[13] + "";
+    	let t0_value = translateEmployeeType(/*employeeType*/ ctx[13]) + "";
     	let t0;
     	let t1;
     	let button_class_value;
@@ -3353,7 +3379,7 @@ var app = (function () {
     	let dispose;
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[8](/*filter*/ ctx[13]);
+    		return /*click_handler_1*/ ctx[8](/*employeeType*/ ctx[13]);
     	}
 
     	const block = {
@@ -3362,17 +3388,17 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
 
-    			attr_dev(button, "class", button_class_value = "" + (null_to_empty(`Main-Filter ${/*filter*/ ctx[13] === 'Звільнені'
+    			attr_dev(button, "class", button_class_value = "" + (null_to_empty(`Main-Filter ${/*employeeType*/ ctx[13] === 'fired'
 			? 'Main-Filter-Fired'
 			: ''}`) + " svelte-13vyijg"));
 
-    			attr_dev(button, "style", button_style_value = /*filter*/ ctx[13] === /*employeeTypeFilter*/ ctx[0]
-    			? /*filter*/ ctx[13] === 'Звільнені'
+    			attr_dev(button, "style", button_style_value = /*employeeType*/ ctx[13] === /*$employeeTypeFilter*/ ctx[1]
+    			? /*employeeType*/ ctx[13] === 'fired'
     				? 'border-color: #bd1b15;'
     				: 'border-color: #15bd2e;'
     			: '');
 
-    			add_location(button, file, 38, 12, 1310);
+    			add_location(button, file, 38, 12, 1377);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3386,16 +3412,16 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*$employeeTypes*/ 16 && t0_value !== (t0_value = /*filter*/ ctx[13] + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$employeeTypes*/ 16 && t0_value !== (t0_value = translateEmployeeType(/*employeeType*/ ctx[13]) + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*$employeeTypes*/ 16 && button_class_value !== (button_class_value = "" + (null_to_empty(`Main-Filter ${/*filter*/ ctx[13] === 'Звільнені'
+    			if (dirty & /*$employeeTypes*/ 16 && button_class_value !== (button_class_value = "" + (null_to_empty(`Main-Filter ${/*employeeType*/ ctx[13] === 'fired'
 			? 'Main-Filter-Fired'
 			: ''}`) + " svelte-13vyijg"))) {
     				attr_dev(button, "class", button_class_value);
     			}
 
-    			if (dirty & /*$employeeTypes, employeeTypeFilter*/ 17 && button_style_value !== (button_style_value = /*filter*/ ctx[13] === /*employeeTypeFilter*/ ctx[0]
-    			? /*filter*/ ctx[13] === 'Звільнені'
+    			if (dirty & /*$employeeTypes, $employeeTypeFilter*/ 18 && button_style_value !== (button_style_value = /*employeeType*/ ctx[13] === /*$employeeTypeFilter*/ ctx[1]
+    			? /*employeeType*/ ctx[13] === 'fired'
     				? 'border-color: #bd1b15;'
     				: 'border-color: #15bd2e;'
     			: '')) {
@@ -3413,7 +3439,7 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(38:8) {#each $employeeTypes as filter}",
+    		source: "(38:8) {#each $employeeTypes as employeeType}",
     		ctx
     	});
 
@@ -3436,16 +3462,16 @@ var app = (function () {
     			t = text("Знайти працівника: ");
     			input = element("input");
     			attr_dev(input, "type", "text");
-    			add_location(input, file, 52, 38, 1867);
-    			add_location(label, file, 52, 12, 1841);
-    			add_location(div, file, 51, 8, 1823);
+    			add_location(input, file, 52, 38, 1987);
+    			add_location(label, file, 52, 12, 1961);
+    			add_location(div, file, 51, 8, 1943);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     			append_dev(div, label);
     			append_dev(label, t);
     			append_dev(label, input);
-    			set_input_value(input, /*employeeNameFilter*/ ctx[1]);
+    			set_input_value(input, /*employeeNameFilter*/ ctx[0]);
 
     			if (!mounted) {
     				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[9]);
@@ -3453,8 +3479,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*employeeNameFilter*/ 2 && input.value !== /*employeeNameFilter*/ ctx[1]) {
-    				set_input_value(input, /*employeeNameFilter*/ ctx[1]);
+    			if (dirty & /*employeeNameFilter*/ 1 && input.value !== /*employeeNameFilter*/ ctx[0]) {
+    				set_input_value(input, /*employeeNameFilter*/ ctx[0]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -3556,7 +3582,7 @@ var app = (function () {
     		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
     	}
 
-    	let if_block1 = (/*filteredEmployeeList*/ ctx[3].length || /*employeeNameFilter*/ ctx[1]) && create_if_block(ctx);
+    	let if_block1 = (/*filteredEmployeeList*/ ctx[3].length || /*employeeNameFilter*/ ctx[0]) && create_if_block(ctx);
     	let each_value = /*filteredEmployeeList*/ ctx[3];
     	validate_each_argument(each_value);
     	const get_key = ctx => /*employee*/ ctx[10].name;
@@ -3595,14 +3621,14 @@ var app = (function () {
     			}
 
     			attr_dev(h1, "class", "Main-Header svelte-13vyijg");
-    			add_location(h1, file, 18, 4, 660);
+    			add_location(h1, file, 18, 4, 714);
     			attr_dev(button, "class", "Main-AddEmployeeButton svelte-13vyijg");
-    			add_location(button, file, 20, 8, 720);
-    			add_location(div0, file, 19, 4, 706);
+    			add_location(button, file, 20, 8, 774);
+    			add_location(div0, file, 19, 4, 760);
     			attr_dev(div1, "class", "Main-Filters svelte-13vyijg");
-    			add_location(div1, file, 36, 4, 1230);
+    			add_location(div1, file, 36, 4, 1291);
     			attr_dev(main, "class", "Main svelte-13vyijg");
-    			add_location(main, file, 17, 0, 636);
+    			add_location(main, file, 17, 0, 690);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3661,7 +3687,7 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (dirty & /*$employeeTypes, employeeTypeFilter*/ 17) {
+    			if (dirty & /*$employeeTypes, $employeeTypeFilter, employeeTypeFilter, translateEmployeeType*/ 18) {
     				each_value_1 = /*$employeeTypes*/ ctx[4];
     				validate_each_argument(each_value_1);
     				let i;
@@ -3685,7 +3711,7 @@ var app = (function () {
     				each_blocks_1.length = each_value_1.length;
     			}
 
-    			if (/*filteredEmployeeList*/ ctx[3].length || /*employeeNameFilter*/ ctx[1]) {
+    			if (/*filteredEmployeeList*/ ctx[3].length || /*employeeNameFilter*/ ctx[0]) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
@@ -3754,15 +3780,17 @@ var app = (function () {
 
     function instance($$self, $$props, $$invalidate) {
     	let filteredEmployeeList;
+    	let $employeeTypeFilter;
     	let $employeeList;
     	let $employeeTypes;
+    	validate_store(employeeTypeFilter, 'employeeTypeFilter');
+    	component_subscribe($$self, employeeTypeFilter, $$value => $$invalidate(1, $employeeTypeFilter = $$value));
     	validate_store(employeeList, 'employeeList');
     	component_subscribe($$self, employeeList, $$value => $$invalidate(5, $employeeList = $$value));
     	validate_store(employeeTypes, 'employeeTypes');
     	component_subscribe($$self, employeeTypes, $$value => $$invalidate(4, $employeeTypes = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	let employeeTypeFilter = '';
     	let employeeNameFilter = '';
     	let isEmployeeFormShown = false;
     	const writable_props = [];
@@ -3776,14 +3804,14 @@ var app = (function () {
     	const func = newEmployee => {
     		employeeList.addEmployee(newEmployee);
     		$$invalidate(2, isEmployeeFormShown = false);
-    		$$invalidate(0, employeeTypeFilter = newEmployee.employeeType);
+    		employeeTypeFilter.setType(newEmployee.employeeType);
     	};
 
-    	const click_handler_1 = filter => $$invalidate(0, employeeTypeFilter = filter);
+    	const click_handler_1 = employeeType => employeeTypeFilter.setType(employeeType);
 
     	function input_input_handler() {
     		employeeNameFilter = this.value;
-    		$$invalidate(1, employeeNameFilter);
+    		$$invalidate(0, employeeNameFilter);
     	}
 
     	$$self.$capture_state = () => ({
@@ -3792,16 +3820,17 @@ var app = (function () {
     		employeeList,
     		employeeTypes,
     		employeeTypeFilter,
+    		translateEmployeeType,
     		employeeNameFilter,
     		isEmployeeFormShown,
     		filteredEmployeeList,
+    		$employeeTypeFilter,
     		$employeeList,
     		$employeeTypes
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('employeeTypeFilter' in $$props) $$invalidate(0, employeeTypeFilter = $$props.employeeTypeFilter);
-    		if ('employeeNameFilter' in $$props) $$invalidate(1, employeeNameFilter = $$props.employeeNameFilter);
+    		if ('employeeNameFilter' in $$props) $$invalidate(0, employeeNameFilter = $$props.employeeNameFilter);
     		if ('isEmployeeFormShown' in $$props) $$invalidate(2, isEmployeeFormShown = $$props.isEmployeeFormShown);
     		if ('filteredEmployeeList' in $$props) $$invalidate(3, filteredEmployeeList = $$props.filteredEmployeeList);
     	};
@@ -3811,20 +3840,20 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*$employeeList, employeeNameFilter, employeeTypeFilter*/ 35) {
+    		if ($$self.$$.dirty & /*$employeeList, employeeNameFilter, $employeeTypeFilter*/ 35) {
     			$$invalidate(3, filteredEmployeeList = $employeeList.filter(value => {
     				if (employeeNameFilter) {
-    					return value.employeeType === employeeTypeFilter && value.name.toLocaleLowerCase().includes(employeeNameFilter.toLocaleLowerCase());
+    					return value.employeeType === $employeeTypeFilter && value.name.toLocaleLowerCase().includes(employeeNameFilter.toLocaleLowerCase());
     				}
 
-    				return value.employeeType === employeeTypeFilter;
+    				return value.employeeType === $employeeTypeFilter;
     			}).sort((a, b) => a.name.localeCompare(b.name, 'ua')));
     		}
     	};
 
     	return [
-    		employeeTypeFilter,
     		employeeNameFilter,
+    		$employeeTypeFilter,
     		isEmployeeFormShown,
     		filteredEmployeeList,
     		$employeeTypes,
