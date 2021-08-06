@@ -1,19 +1,19 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
     import EmployeeForm from './EmployeeForm.svelte'
-    import { employeeList, employeeTypes } from './stores'
+    import { employeeList, employeeTypes, employeeTypeFilter } from './stores'
+    import translateEmployeeType from './translateEmployeeType'
 
-    let employeeTypeFilter = ''
     let employeeNameFilter = ''
 
     $: filteredEmployeeList = $employeeList
         .filter((value) => {
             if (employeeNameFilter) {
-                return value.employeeType === employeeTypeFilter &&
+                return value.employeeType === $employeeTypeFilter &&
                     value.name.toLocaleLowerCase().includes(employeeNameFilter.toLocaleLowerCase())
             }
 
-            return value.employeeType === employeeTypeFilter
+            return value.employeeType === $employeeTypeFilter
         })
         .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
@@ -34,22 +34,22 @@
                 onAddEmployee={(newEmployee) => {
                     employeeList.addEmployee(newEmployee)
                     isEmployeeFormShown = false
-                    employeeTypeFilter = newEmployee.employeeType
+                    employeeTypeFilter.setType(newEmployee.employeeType)
                 }}
             />
         {/if}
     </div>
     <div class="Main-Filters">
-        {#each $employeeTypes as filter}
+        {#each $employeeTypes as employeeType}
             <button
-                on:click={() => employeeTypeFilter = filter}
-                class={`Main-Filter ${filter === 'Звільнені' ? 'Main-Filter-Fired' : ''}`}
-                style={filter === employeeTypeFilter
-                    ? (filter === 'Звільнені' ? 'border-color: #bd1b15;' : 'border-color: #15bd2e;')
+                on:click={() => employeeTypeFilter.setType(employeeType)}
+                class={`Main-Filter ${employeeType === 'fired' ? 'Main-Filter-Fired' : ''}`}
+                style={employeeType === $employeeTypeFilter
+                    ? (employeeType === 'fired' ? 'border-color: #bd1b15;' : 'border-color: #15bd2e;')
                     : ''
                 }
             >
-                {filter}
+                {translateEmployeeType(employeeType)}
             </button>
         {/each}
     </div>

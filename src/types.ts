@@ -1,7 +1,7 @@
 export type EmployeeType =
-    'Вчитель' | 'Адміністрація' | 'Допоміжний персонал' | 'Технічний персонал' | 'Обслуговуючий персонал' | 'Звільнені'
+    'teacher' | 'administration' | 'supportStaff' | 'technicalStaff' | 'serviceStaff' | 'fired'
 export type VacationType =
-    'Основна' | 'За особливий характер праці' | 'Соціальна' | 'За бажанням працівника' | 'За згодою сторін'
+    'main' | 'forSpecialNatureOfWork' | 'social' | 'forEmployeeWish' | 'byAgreement'
 
 export type Vacation = {
     type: VacationType

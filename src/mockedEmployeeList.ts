@@ -2,10 +2,10 @@ const mockedEmployeeList = [
     {
         name: 'Давиденко Іван Олександрович',
         position: 'Вчитель української мови та літератури',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -15,10 +15,10 @@ const mockedEmployeeList = [
     {
         name: 'Монько Ніна Дмитрівна',
         position: 'Вчитель російської мови та літератури"',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -28,10 +28,10 @@ const mockedEmployeeList = [
     {
         name: 'Касярум Тетяна Володимирівна',
         position: 'Вчитель української мови та літератури',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -41,10 +41,10 @@ const mockedEmployeeList = [
     {
         name: 'Біла Тетяна Петрівна',
         position: 'Вчитель української мови та літератури',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -54,10 +54,10 @@ const mockedEmployeeList = [
     {
         name: 'Легка Юлія Миколаївна',
         position: 'Вчитель інформатики',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -67,10 +67,10 @@ const mockedEmployeeList = [
     {
         name: 'Дятлова Олена Анатоліївна',
         position: 'Вчитель',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -80,10 +80,10 @@ const mockedEmployeeList = [
     {
         name: 'Прохач Валентина Федорівна',
         position: 'Вчитель математики',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -93,10 +93,10 @@ const mockedEmployeeList = [
     {
         name: 'Калмикова Вікторія Валеріївна',
         position: 'Вчитель математики',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -106,10 +106,10 @@ const mockedEmployeeList = [
     {
         name: 'Уманська Тетяна Миколаївна',
         position: 'Вчитель фізики',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -119,10 +119,10 @@ const mockedEmployeeList = [
     {
         name: 'Лазарєва Тетяна Петрівна',
         position: 'Вчитель хімії',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -132,10 +132,10 @@ const mockedEmployeeList = [
     {
         name: 'Іголкіна Яна В’ячеславівна',
         position: 'Вчитель біології',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -145,10 +145,10 @@ const mockedEmployeeList = [
     {
         name: 'Цьомко Віта Степанівна',
         position: 'Вчитель історії',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -158,10 +158,10 @@ const mockedEmployeeList = [
     {
         name: 'Трубчанінова Тетяна Петрівна',
         position: 'Вчитель географії',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -171,10 +171,10 @@ const mockedEmployeeList = [
     {
         name: 'Григор’єв Артем Сергійович',
         position: 'Вчитель фізичної культури',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -184,10 +184,10 @@ const mockedEmployeeList = [
     {
         name: 'Морозова Тетяна Михайлівна',
         position: 'Методист з профорієнтації',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 42,
                 totalDays: 42,
@@ -197,10 +197,10 @@ const mockedEmployeeList = [
     {
         name: 'Перерва Світлана Вікторівна',
         position: 'Вчитель інформатики',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -210,10 +210,10 @@ const mockedEmployeeList = [
     {
         name: 'Щербина Ярослава Анатоліївна',
         position: 'Вчитель історії',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -223,10 +223,10 @@ const mockedEmployeeList = [
     {
         name: 'Вовк Ольга Вікторівна',
         position: 'Вчитель англійської мови',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -236,10 +236,10 @@ const mockedEmployeeList = [
     {
         name: 'Мазур Інна Сергіївна',
         position: 'Вчитель англійської мови',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -249,10 +249,10 @@ const mockedEmployeeList = [
     {
         name: 'Біда Юля Петрівна',
         position: 'Вчитель української мови та літератури',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -262,10 +262,10 @@ const mockedEmployeeList = [
     {
         name: 'Зайдуліна Вікторія Вікторівна',
         position: 'Вчитель англійської мови',
-        employeeType: 'Вчитель',
+        employeeType: 'teacher',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -275,10 +275,10 @@ const mockedEmployeeList = [
     {
         name: 'Мятович Ірина Володимирівна',
         position: 'Директор',
-        employeeType: 'Адміністрація',
+        employeeType: 'administration',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -288,10 +288,10 @@ const mockedEmployeeList = [
     {
         name: 'Смьордова Ольга Володимирівна',
         position: 'Заступник директора з НВР',
-        employeeType: 'Адміністрація',
+        employeeType: 'administration',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -301,10 +301,10 @@ const mockedEmployeeList = [
     {
         name: 'Бабаніна Ольга Петрівна',
         position: 'Заступник директора з НВР',
-        employeeType: 'Адміністрація',
+        employeeType: 'administration',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -314,10 +314,10 @@ const mockedEmployeeList = [
     {
         name: 'Дем’яник Олена Геннадіївна',
         position: 'Заступник директора з ВР',
-        employeeType: 'Адміністрація',
+        employeeType: 'administration',
         vacations: [
             {
-                type: 'Основна',
+                type: 'main',
                 isPaid: true,
                 vacationDays: 56,
                 totalDays: 56,
@@ -327,364 +327,364 @@ const mockedEmployeeList = [
     {
         name: 'Оріян Анастасія Олександрівна',
         position: 'Практичний психолог',
-        employeeType: 'Допоміжний персонал',
+        employeeType: 'supportStaff',
         vacations: [
             {
                 totalDays: 56,
                 vacationDays: 56,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Качан Анастасія Романівна',
         position: 'Соціальний педагог',
-        employeeType: 'Допоміжний персонал',
+        employeeType: 'supportStaff',
         vacations: [
             {
                 totalDays: 56,
                 vacationDays: 56,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Петрова Віра Вікторівна',
         position: 'Завідуюча господарством',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 31,
                 vacationDays: 31,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Школа Наталія Миколаївна',
         position: 'Інспектор з кадрів та діловодства',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 31,
                 vacationDays: 31,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Сухар Ольга Іванівна',
         position: 'Інженер з охорони праці',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 31,
                 vacationDays: 31,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Дузенко Яна Олегівна',
         position: 'Інженер-електронік',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 31,
                 vacationDays: 31,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Казаков Сергій Геннадійович',
         position: 'Робітник',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Порошина Марина Василівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Петрухіна Людмила Іванівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Олійник Тетяна Олександрівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Кодиця Валентина Іванівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Бондаренко Наталія Олександрівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Сагайдачна Валентина Олексіївна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Назаренко Юрій Михайлович',
         position: 'Сторож',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Дубогрій Анатолій Іванович',
         position: 'Сторож',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Чорний Костянтин Григорович',
         position: 'Сторож',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Пічуєва Марина Іванівна',
         position: 'Медична сестра',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Волошина Олена Леонідівна',
         position: 'Бібліотекар',
-        employeeType: 'Технічний персонал',
+        employeeType: 'technicalStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Казаков Сергій Геннадійович',
         position: 'Робітник',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Порошина Марина Василівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Петрухіна Людмила Іванівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Олійник Тетяна Олександрівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Кодиця Валентина Іванівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Бондаренко Наталія Олександрівна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Сагайдачна Валентина Олексіївна',
         position: 'Прибиральниця службових приміщень',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Назаренко Юрій Михайлович',
         position: 'Сторож',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Дубогрій Анатолій Іванович',
         position: 'Сторож',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },
     {
         name: 'Чорний Костянтин Григорович',
         position: 'Сторож',
-        employeeType: 'Обслуговуючий персонал',
+        employeeType: 'serviceStaff',
         vacations: [
             {
                 totalDays: 24,
                 vacationDays: 24,
                 isPaid: true,
-                type: 'Основна',
+                type: 'main',
             },
         ],
     },

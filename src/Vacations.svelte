@@ -2,6 +2,7 @@
     import type { EmployeeData, Vacation } from './types'
     import { employeeList } from './stores'
     import AddVacationsGroupForm from './AddVacationsGroupForm.svelte'
+    import translateVacationType from './translateVacationType'
 
     export let employee: EmployeeData
 
@@ -42,7 +43,7 @@
 
 {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}
     <div on:dblclick={() => handleTotalVacationDaysChange(vacation)}>
-        <b>{vacation.type}</b>: {vacation.vacationDays} з {vacation.totalDays} днів
+        <b>{translateVacationType(vacation.type)}</b>: {vacation.vacationDays} з {vacation.totalDays} днів
         {#if vacation.isPaid}
             (Оплачувана)
             {:else}
