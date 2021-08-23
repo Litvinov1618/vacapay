@@ -2,7 +2,7 @@
     import Employee from './Employee.svelte'
     import EmployeeForm from './EmployeeForm.svelte'
     import DeleteIcon from './DeleteIcon.svelte'
-    import { employeeList, employeeTypes, employeeTypeFilter } from './stores'
+    import { employeeList, EMPLOYEE_TYPES, employeeTypeFilter } from './stores'
     import translateEmployeeType from './translateEmployeeType'
 
     let employeeNameFilter = ''
@@ -30,7 +30,7 @@
 <main class="Main">
     <h1 class="Main-Header">Vacapay alfa</h1>
     <div>
-        <button on:click={() => (isEmployeeFormShown = true)} class="Main-AddEmployeeButton">
+        <button on:click={() => (isEmployeeFormShown = !isEmployeeFormShown)} class="Main-AddEmployeeButton">
             Додати працівника
         </button>
         {#if isEmployeeFormShown}
@@ -51,7 +51,7 @@
         >
             Всi
         </button>
-        {#each $employeeTypes as employeeType}
+        {#each EMPLOYEE_TYPES as employeeType}
             <button
                 on:click={() => employeeTypeFilter.setType(employeeType)}
                 class={`Main-Filter ${employeeType === 'fired' ? 'Main-Filter-Fired' : ''}`}
@@ -78,9 +78,13 @@
             </div>
         </label>
     </div>
-    {#each filteredEmployeeList as employee (employee.name + Math.random())}
-        <Employee {employee} />
-    {/each}
+    {#if filteredEmployeeList.length}
+        {#each filteredEmployeeList as employee (employee.name + Math.random())}
+            <Employee {employee} />
+        {/each}
+    {:else}
+        <p style="color: #808080a1">Працівників не знайдено </p>
+    {/if}
 </main>
 
 <style>
