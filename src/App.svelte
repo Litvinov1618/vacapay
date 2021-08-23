@@ -1,19 +1,26 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
     import EmployeeForm from './EmployeeForm.svelte'
+    import DeleteIcon from './DeleteIcon.svelte'
     import { employeeList, employeeTypes, employeeTypeFilter } from './stores'
     import translateEmployeeType from './translateEmployeeType'
 
     let employeeNameFilter = ''
 
     $: filteredEmployeeList = $employeeList
-        .filter((value) => {
-            if (employeeNameFilter) {
-                return value.employeeType === $employeeTypeFilter &&
-                    value.name.toLocaleLowerCase().includes(employeeNameFilter.toLocaleLowerCase())
+        .filter(value => {
+            if ($employeeTypeFilter) {
+                return value.employeeType === $employeeTypeFilter
             }
 
-            return value.employeeType === $employeeTypeFilter
+            return true
+        })
+        .filter((value) => {
+            if (employeeNameFilter) {
+                return value.name.toLocaleLowerCase().includes(employeeNameFilter.toLocaleLowerCase())
+            }
+
+            return true
         })
         .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
@@ -40,6 +47,13 @@
         {/if}
     </div>
     <div class="Main-Filters">
+        <button
+            on:click={() => employeeTypeFilter.setType(null)}
+            class="Main-Filter"
+            style={$employeeTypeFilter || 'border-color: #15bd2e;'}
+        >
+            Всi
+        </button>
         {#each $employeeTypes as employeeType}
             <button
                 on:click={() => employeeTypeFilter.setType(employeeType)}
@@ -53,12 +67,20 @@
             </button>
         {/each}
     </div>
-    {#if filteredEmployeeList.length || employeeNameFilter}
-        <div>
-            <label>Знайти працівника: <input type="text" bind:value={employeeNameFilter}></label>
-        </div>
-    {/if}
-    {#each filteredEmployeeList as employee (employee.name)}
+    <div>
+        <label for="search_employee">
+            Знайти працівника:{' '}
+            <div class="Main-Search">
+                <input type="text" bind:value={employeeNameFilter} name="search_employee">
+                {#if employeeNameFilter}
+                    <div class="Main-SearchClear" on:click={() => employeeNameFilter = ''}>
+                        <DeleteIcon />
+                    </div>
+                {/if}
+            </div>
+        </label>
+    </div>
+    {#each filteredEmployeeList as employee (employee.name + Math.random())}
         <Employee employee={employee} />
     {/each}
 </main>
@@ -106,5 +128,17 @@
 
     .Main-AddEmployeeButton {
         background: CadetBlue;
+    }
+
+    .Main-Search {
+        position: relative;
+        display: inline-block;
+    }
+
+    .Main-SearchClear {
+        position: absolute;
+        top: 10px;
+        right: 6px;
+        cursor: pointer;
     }
 </style>
