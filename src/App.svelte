@@ -15,7 +15,7 @@
 
             return true
         })
-        .filter((value) => {
+        .filter(value => {
             if (employeeNameFilter) {
                 return value.name.toLocaleLowerCase().includes(employeeNameFilter.toLocaleLowerCase())
             }
@@ -30,15 +30,12 @@
 <main class="Main">
     <h1 class="Main-Header">Vacapay alfa</h1>
     <div>
-        <button
-            on:click={() => isEmployeeFormShown = true}
-            class="Main-AddEmployeeButton"
-        >
+        <button on:click={() => (isEmployeeFormShown = true)} class="Main-AddEmployeeButton">
             Додати працівника
         </button>
         {#if isEmployeeFormShown}
             <EmployeeForm
-                onAddEmployee={(newEmployee) => {
+                onAddEmployee={newEmployee => {
                     employeeList.addEmployee(newEmployee)
                     isEmployeeFormShown = false
                     employeeTypeFilter.setType(newEmployee.employeeType)
@@ -59,9 +56,10 @@
                 on:click={() => employeeTypeFilter.setType(employeeType)}
                 class={`Main-Filter ${employeeType === 'fired' ? 'Main-Filter-Fired' : ''}`}
                 style={employeeType === $employeeTypeFilter
-                    ? (employeeType === 'fired' ? 'border-color: #bd1b15;' : 'border-color: #15bd2e;')
-                    : ''
-                }
+                    ? employeeType === 'fired'
+                        ? 'border-color: #bd1b15;'
+                        : 'border-color: #15bd2e;'
+                    : ''}
             >
                 {translateEmployeeType(employeeType)}
             </button>
@@ -71,9 +69,9 @@
         <label for="search_employee">
             Знайти працівника:{' '}
             <div class="Main-Search">
-                <input type="text" bind:value={employeeNameFilter} name="search_employee">
+                <input type="text" bind:value={employeeNameFilter} name="search_employee" />
                 {#if employeeNameFilter}
-                    <div class="Main-SearchClear" on:click={() => employeeNameFilter = ''}>
+                    <div class="Main-SearchClear" on:click={() => (employeeNameFilter = '')}>
                         <DeleteIcon />
                     </div>
                 {/if}
@@ -81,7 +79,7 @@
         </label>
     </div>
     {#each filteredEmployeeList as employee (employee.name + Math.random())}
-        <Employee employee={employee} />
+        <Employee {employee} />
     {/each}
 </main>
 

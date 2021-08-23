@@ -21,7 +21,6 @@
         changeEmployeeTotalVacationDays(employee, vacation, +newTotalVacationDays)
     }
 
-
     const deductVacationPay = (selectedEmployee: EmployeeData, selectedVacation: Vacation) => {
         const daysToDeduct = window.prompt(`На скільки днів ${selectedEmployee.name} бере відпустку?`)
 
@@ -43,13 +42,14 @@
 
 {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}
     <div on:dblclick={() => handleTotalVacationDaysChange(vacation)}>
-        <b>{translateVacationType(vacation.type)}</b>: {vacation.vacationDays} з {vacation.totalDays} днів
+        <b>{translateVacationType(vacation.type)}</b>: {vacation.vacationDays} з
+        {vacation.totalDays} днів
         {#if vacation.isPaid}
             (Оплачувана)
-            {:else}
+        {:else}
             (Неоплачувана)
         {/if}
         <button on:click={() => deductVacationPay(employee, vacation)}>Відняти відпускні</button>
     </div>
 {/each}
-<AddVacationsGroupForm employee={employee} />
+<AddVacationsGroupForm {employee} />

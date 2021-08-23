@@ -20,7 +20,7 @@
         changeEmployeeInfo(employee, {
             ...employee,
             name: isName ? newInfo : employee.name,
-            position: isName ? employee.position : newInfo
+            position: isName ? employee.position : newInfo,
         })
     }
 
@@ -34,31 +34,28 @@
 </script>
 
 <div class={`Employee ${isFired ? 'Employee-Fired' : ''}`}>
-    <div class="Employee-Header" on:click={() => isEmployeeContentOpened = !isEmployeeContentOpened}>
+    <div class="Employee-Header" on:click={() => (isEmployeeContentOpened = !isEmployeeContentOpened)}>
         <div class="Employee-HeaderInfo">
-            <div on:dblclick={() => handleInfoChange('name')}><b>ПІБ</b>: {employee.name}</div>
-            <div on:dblclick={() => handleInfoChange('position')}><b>Посада</b>: {employee.position}</div>
+            <div on:dblclick={() => handleInfoChange('name')}>
+                <b>ПІБ</b>: {employee.name}
+            </div>
+            <div on:dblclick={() => handleInfoChange('position')}>
+                <b>Посада</b>: {employee.position}
+            </div>
         </div>
         <AngleRightIcon isDropped={isEmployeeContentOpened} />
     </div>
     <div hidden={!isEmployeeContentOpened} class="Employee-Vacations">
         <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
-        <Vacations employee={employee} />
+        <Vacations {employee} />
         {#if !isFired}
             {#if !isChangeEmployeeTypeFormShown}
-            <button
-                on:click={() => isChangeEmployeeTypeFormShown = true}
-            >
-                    Змінити категорію працівника
-                </button>
+                <button on:click={() => (isChangeEmployeeTypeFormShown = true)}> Змінити категорію працівника </button>
             {/if}
             {#if isChangeEmployeeTypeFormShown}
                 <select on:change={handleEmployeeTypeChange}>
                     {#each $employeeTypes as employeeType}
-                        <option
-                            value={employeeType}
-                            selected={employee.employeeType === employeeType}
-                        >
+                        <option value={employeeType} selected={employee.employeeType === employeeType}>
                             {translateEmployeeType(employeeType)}
                         </option>
                     {/each}
@@ -119,6 +116,6 @@
 
     .Employee-Button:hover {
         background: #acacac3d;
-        transition: 'background' .3s;
+        transition: 'background' 0.3s;
     }
 </style>
