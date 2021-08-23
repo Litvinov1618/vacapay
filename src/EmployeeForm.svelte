@@ -1,7 +1,8 @@
 <script lang="ts">
-    export let onAddEmployee: (newEmployee: EmployeeData) => void
+    export let onAddEmployee: (newEmployee: Omit<EmployeeData, 'id'>) => void
 
     import { employeeTypes } from './stores'
+    import translateEmployeeType from './translateEmployeeType'
     import type { EmployeeData, EmployeeType } from './types'
 
     let name: string, employeeType: EmployeeType, position: string
@@ -25,7 +26,7 @@
         <select class="EmployeeForm-Input" bind:value={employeeType} required>
             <option value="" selected disabled hidden />
             {#each $employeeTypes as employeeType}
-                <option value={employeeType}>{employeeType}</option>
+                <option value={employeeType}>{translateEmployeeType(employeeType)}</option>
             {/each}
         </select>
     </label>
