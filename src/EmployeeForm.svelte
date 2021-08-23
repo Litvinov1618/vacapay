@@ -1,4 +1,3 @@
-
 <script lang="ts">
     export let onAddEmployee: (newEmployee: EmployeeData) => void
 
@@ -15,26 +14,16 @@
 <form action="submit" on:submit|preventDefault={handleFormSubmit} class="EmployeeForm">
     <label class="EmployeeForm-Label">
         ПІБ Працівника
-        <input
-            type="text"
-            class="EmployeeForm-Input"
-            bind:value={name}
-            required
-        >
+        <input type="text" class="EmployeeForm-Input" bind:value={name} required />
     </label>
     <label class="EmployeeForm-Label">
         Посада
-        <input
-            type="text"
-            class="EmployeeForm-Input"
-            bind:value={position}
-            required
-        >
+        <input type="text" class="EmployeeForm-Input" bind:value={position} required />
     </label>
     <label class="EmployeeForm-Label">
         Тип посади
         <select class="EmployeeForm-Input" bind:value={employeeType} required>
-            <option value="" selected disabled hidden></option>
+            <option value="" selected disabled hidden />
             {#each $employeeTypes as employeeType}
                 <option value={employeeType}>{employeeType}</option>
             {/each}

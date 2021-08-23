@@ -31,7 +31,7 @@
 
 {#if !isAddVacationGroupFormShown}
     <div>
-        <button on:click={() => isAddVacationGroupFormShown = true}>Додати новий тип відпустки</button>
+        <button on:click={() => (isAddVacationGroupFormShown = true)}> Додати новий тип відпустки </button>
     </div>
 {/if}
 {#if isAddVacationGroupFormShown}
@@ -41,7 +41,7 @@
                 <option value={type}>{translateEmployeeType(type)}</option>
             {/each}
         </select>
-        <input type="number" placeholder="Кількість днів" bind:value={totalDays}>
+        <input type="number" placeholder="Кількість днів" bind:value={totalDays} />
         <label style="display: inline;">
             <select bind:value={isPaid}>
                 <option value={true}>Оплачувана</option>
