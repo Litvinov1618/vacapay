@@ -9,7 +9,7 @@
     const { changeEmployeeTotalVacationDays, changeEmployeeVacationDays } = employeeList
 
     const handleTotalVacationDaysChange = (vacation: Vacation) => {
-        const newTotalVacationDays = prompt(vacation.type, vacation.totalDays.toLocaleString())
+        const newTotalVacationDays = prompt(translateVacationType(vacation.type), vacation.totalDays.toLocaleString())
 
         if (!newTotalVacationDays) return
 

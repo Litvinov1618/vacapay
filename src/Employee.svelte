@@ -5,7 +5,7 @@
     import TrashIcon from './TrashIcon.svelte'
     import type { EmployeeData } from './types'
     import Vacations from './Vacations.svelte'
-    import { employeeList, employeeTypes, employeeTypeFilter } from './stores'
+    import { employeeList, EMPLOYEE_TYPES, employeeTypeFilter } from './stores'
     import translateEmployeeType from './translateEmployeeType'
 
     let isEmployeeContentOpened = false
@@ -17,7 +17,7 @@
 
         if (!newInfo) return
 
-        changeEmployeeInfo(employee, {
+        changeEmployeeInfo(employee.id, {
             ...employee,
             name: isName ? newInfo : employee.name,
             position: isName ? employee.position : newInfo,
@@ -54,7 +54,7 @@
             {/if}
             {#if isChangeEmployeeTypeFormShown}
                 <select on:change={handleEmployeeTypeChange}>
-                    {#each $employeeTypes as employeeType}
+                    {#each EMPLOYEE_TYPES as employeeType}
                         <option value={employeeType} selected={employee.employeeType === employeeType}>
                             {translateEmployeeType(employeeType)}
                         </option>
@@ -62,7 +62,7 @@
                 </select>
             {/if}
             <button
-                on:click={() => confirm('Ви дійсно бажаєте звільнити цього працівника?') && fireEmployee(employee)}
+                on:click={() => confirm('Ви дійсно бажаєте звільнити цього працівника?') && fireEmployee(employee.id)}
                 class="Employee-Button"
             >
                 <TrashIcon />
