@@ -2,7 +2,7 @@
     export let isDropped: boolean
 </script>
 
-<div class={`AngleRight ${isDropped ? 'AngleRight-Dropped' : ''}`}></div>
+<div class={`AngleRight ${isDropped ? 'AngleRight-Dropped' : ''}`} />
 
 <style>
     .AngleRight {
