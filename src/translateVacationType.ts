@@ -1,6 +1,6 @@
 import type { VacationType } from './types'
 
-const translateEmployeeType = (employeeType: VacationType) => {
+const translateVacationType = (employeeType: VacationType) => {
     switch (employeeType) {
         case 'main': return 'Основна'
         case 'forSpecialNatureOfWork': return 'За особливий характер праці'
@@ -10,4 +10,4 @@ const translateEmployeeType = (employeeType: VacationType) => {
     }
 }
 
-export default translateEmployeeType
+export default translateVacationType

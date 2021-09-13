@@ -3,7 +3,7 @@
 
     import type { EmployeeData, VacationType } from './types'
     import { employeeList } from './stores'
-    import translateEmployeeType from './translateVacationType'
+    import translateVacationType from './translateVacationType'
 
     const vacationTypes: Array<VacationType> = [
         'main',
@@ -38,7 +38,7 @@
     <form action="submit" on:submit|preventDefault={handleNewVacationsGroupSubmit}>
         <select bind:value={vacationType}>
             {#each vacationTypes as type}
-                <option value={type}>{translateEmployeeType(type)}</option>
+                <option value={type}>{translateVacationType(type)}</option>
             {/each}
         </select>
         <input type="number" placeholder="Кількість днів" bind:value={totalDays} />

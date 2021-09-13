@@ -11,6 +11,7 @@ export type Vacation = {
 }
 
 export interface EmployeeData {
+    id: string
     name: string
     position: string
     employeeType: EmployeeType
