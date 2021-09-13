@@ -1,4 +1,4 @@
-import { readable, writable } from 'svelte/store'
+import { writable } from 'svelte/store'
 import db from './firebase/firebase'
 import type { EmployeeData, EmployeeType, Vacation } from './types'
 
@@ -74,5 +74,12 @@ const createEmployeeTypeFilter = () => {
     const { subscribe, set } = writable<EmployeeType | null>(null)
     return { subscribe, setType: (newType: EmployeeType) => set(newType) }
 }
+
+const createExpandedEmployeeCardId = () => {
+    const { subscribe, set } = writable('')
+    return { subscribe, setId: (contentId: string) => set(contentId) }
+}
+
+export const expandedEmployeeCardId = createExpandedEmployeeCardId()
 
 export const employeeTypeFilter = createEmployeeTypeFilter()

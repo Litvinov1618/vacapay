@@ -5,11 +5,12 @@
     import TrashIcon from './TrashIcon.svelte'
     import type { EmployeeData } from './types'
     import Vacations from './Vacations.svelte'
-    import { employeeList, EMPLOYEE_TYPES, employeeTypeFilter } from './stores'
+    import { employeeList, EMPLOYEE_TYPES, employeeTypeFilter, expandedEmployeeCardId } from './stores'
     import translateEmployeeType from './translateEmployeeType'
 
-    let isEmployeeContentOpened = false
-    const { changeEmployeeInfo, fireEmployee } = employeeList
+    const { changeEmployeeInfo, fireEmployee, changeEmployeeType } = employeeList
+
+    $: isEmployeeCardOpened = $expandedEmployeeCardId === employee.id
 
     const handleInfoChange = (infoType: 'name' | 'position') => {
         const isName = infoType === 'name'
@@ -25,8 +26,14 @@
     }
 
     const handleEmployeeTypeChange = event => {
-        employeeList.changeEmployeeType(employee, event.target.value)
+        changeEmployeeType(employee, event.target.value)
         employeeTypeFilter.setType(event.target.value)
+    }
+
+    const handleFireEmployee = () => {
+        if (!confirm('Ви дійсно бажаєте звільнити цього працівника?')) return
+        fireEmployee(employee.id)
+        expandedEmployeeCardId.setId('')
     }
 
     const isFired = employee.employeeType === 'fired'
@@ -34,7 +41,10 @@
 </script>
 
 <div class={`Employee ${isFired ? 'Employee-Fired' : ''}`}>
-    <div class="Employee-Header" on:click={() => (isEmployeeContentOpened = !isEmployeeContentOpened)}>
+    <div
+        class="Employee-Header"
+        on:click={() => expandedEmployeeCardId.setId(isEmployeeCardOpened ? '' : employee.id)}
+    >
         <div class="Employee-HeaderInfo">
             <div on:dblclick={() => handleInfoChange('name')}>
                 <b>ПІБ</b>: {employee.name}
@@ -43,9 +53,9 @@
                 <b>Посада</b>: {employee.position}
             </div>
         </div>
-        <AngleRightIcon isDropped={isEmployeeContentOpened} />
+        <AngleRightIcon isDropped={isEmployeeCardOpened} />
     </div>
-    <div hidden={!isEmployeeContentOpened} class="Employee-Vacations">
+    <div hidden={!isEmployeeCardOpened} class="Employee-Vacations">
         <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
         <Vacations {employee} />
         {#if !isFired}
@@ -61,10 +71,7 @@
                     {/each}
                 </select>
             {/if}
-            <button
-                on:click={() => confirm('Ви дійсно бажаєте звільнити цього працівника?') && fireEmployee(employee.id)}
-                class="Employee-Button"
-            >
+            <button on:click={handleFireEmployee} class="Employee-Button">
                 <TrashIcon />
             </button>
         {/if}
