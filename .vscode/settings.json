@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "firestore"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#6b21b1"
+    },
 }

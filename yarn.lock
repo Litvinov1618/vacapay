@@ -744,6 +744,16 @@ cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+dayjs-business-days@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/dayjs-business-days/-/dayjs-business-days-1.0.4.tgz#36e93e7566149e175c1541d92ce16e12145412bf"
+  integrity sha512-kmb8Hvlhmv7INc2YXWew4SaEBJprqJ9C48CdlO1NTsqQa31ZEcO48ziFa3YFr5W9rdwB1nUmd5iIkLwgCkJ8nA==
+
+dayjs@^1.10.6, dayjs@^1.10.7:
+  version "1.10.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
+  integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
+
 debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -1523,6 +1533,11 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+just-throttle@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/just-throttle/-/just-throttle-2.3.1.tgz#ef4a0710073bb4b0faf7dad1bc4ccabaeec4d0e6"
+  integrity sha512-0H4miIAWZYpnpg7oD/Y/PBb77ISSHAETif5xK9EnwIgYCO6oC8ErkJxDumMUTR44shSOwptRIArRuvNuvN/hOw==
+
 kleur@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
@@ -2278,6 +2293,14 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+svelte-calendar@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/svelte-calendar/-/svelte-calendar-3.1.6.tgz#bdbf949f19eae199d04860da7857abb5000e8444"
+  integrity sha512-jOHiPlxBAa1LGVFQZoczdAGnCSI2RKcuQQHj32TjLbXO/P2Povx4JphPEcP7XjKj/s/jimBC6xQyFhyjD0vxbg==
+  dependencies:
+    dayjs "^1.10.6"
+    just-throttle "^2.3.1"
 
 svelte-check@^2.0.0:
   version "2.2.4"

@@ -1,5 +1,6 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
+    import VacationCalendar from './VacationCalendar.svelte'
     import EmployeeForm from './EmployeeForm.svelte'
     import DeleteIcon from './DeleteIcon.svelte'
     import { employeeList, EMPLOYEE_TYPES, employeeTypeFilter } from './stores'
@@ -25,13 +26,17 @@
         .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
     let isEmployeeFormShown = false
+    let isVacationCalendarShown = false
 </script>
 
 <main class="Main">
-    <h1 class="Main-Header">Vacapay alfa</h1>
+    <h1 class="Main-Header">Vacapay</h1>
     <div>
         <button on:click={() => (isEmployeeFormShown = !isEmployeeFormShown)} class="Main-AddEmployeeButton">
             Додати працівника
+        </button>
+        <button on:click={() => (isVacationCalendarShown = !isVacationCalendarShown)} class="Main-AddEmployeeButton">
+            Календар відпусток
         </button>
         {#if isEmployeeFormShown}
             <EmployeeForm
@@ -41,6 +46,9 @@
                     employeeTypeFilter.setType(newEmployee.employeeType)
                 }}
             />
+        {/if}
+        {#if isVacationCalendarShown}
+            <VacationCalendar />
         {/if}
     </div>
     <div class="Main-Filters">
@@ -83,7 +91,7 @@
             <Employee {employee} />
         {/each}
     {:else}
-        <p style="color: #808080a1">Працівників не знайдено </p>
+        <p style="color: #808080a1">Працівників не знайдено</p>
     {/if}
 </main>
 
