@@ -1,8 +1,8 @@
 <script type="ts">
-    export let isDropped: boolean
+    export let dropped: boolean
 </script>
 
-<div class={`AngleRight ${isDropped ? 'AngleRight-Dropped' : ''}`} />
+<div class={`AngleRight ${dropped ? 'AngleRight-Dropped' : ''}`} />
 
 <style>
     .AngleRight {

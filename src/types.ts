@@ -1,7 +1,5 @@
-export type EmployeeType =
-    'teacher' | 'administration' | 'supportStaff' | 'technicalStaff' | 'serviceStaff' | 'fired'
-export type VacationType =
-    'main' | 'forSpecialNatureOfWork' | 'social' | 'forEmployeeWish' | 'byAgreement'
+export type EmployeeType = 'teacher' | 'administration' | 'supportStaff' | 'technicalStaff' | 'serviceStaff' | 'fired'
+export type VacationType = 'main' | 'forSpecialNatureOfWork' | 'social' | 'forEmployeeWish' | 'byAgreement'
 
 export type Vacation = {
     type: VacationType

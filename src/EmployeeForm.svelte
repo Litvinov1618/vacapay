@@ -1,18 +1,23 @@
 <script lang="ts">
-    export let onAddEmployee: (newEmployee: Omit<EmployeeData, 'id'>) => void
+    import { employeeList, employeeTypes } from './stores'
+    import { Link } from 'svelte-navigator'
 
-    import { EMPLOYEE_TYPES } from './stores'
-    import translateEmployeeType from './translateEmployeeType'
-    import type { EmployeeData, EmployeeType } from './types'
+    import type { EmployeeType } from './types'
 
     let name: string, employeeType: EmployeeType, position: string
 
     const handleFormSubmit = () => {
-        if (name && employeeType && position) onAddEmployee({ name, employeeType, position, vacations: [] })
+        if (name && employeeType && position) {
+            employeeList.addEmployee({ name, employeeType, position, vacations: [] })
+            name = ''
+            employeeType = undefined
+            position = ''
+        }
     }
 </script>
 
 <form action="submit" on:submit|preventDefault={handleFormSubmit} class="EmployeeForm">
+    <Link to="/">Назад</Link>
     <label class="EmployeeForm-Label">
         ПІБ Працівника
         <input type="text" class="EmployeeForm-Input" bind:value={name} required />
@@ -25,8 +30,8 @@
         Тип посади
         <select class="EmployeeForm-Input" bind:value={employeeType} required>
             <option value="" selected disabled hidden />
-            {#each EMPLOYEE_TYPES as employeeType}
-                <option value={employeeType}>{translateEmployeeType(employeeType)}</option>
+            {#each Object.keys(employeeTypes).filter(key => key !== 'fired') as employeeType}
+                <option value={employeeType}>{employeeTypes[employeeType]}</option>
             {/each}
         </select>
     </label>

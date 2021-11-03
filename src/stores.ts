@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 import db from './firebase/firebase'
-import type { EmployeeData, EmployeeType, Vacation } from './types'
+import type { EmployeeData, EmployeeType, Vacation, VacationType } from './types'
 
 const createEmployeeList = () => {
     const { subscribe, set } = writable([])
@@ -61,14 +61,22 @@ const createEmployeeList = () => {
 
 export const employeeList = createEmployeeList()
 
-export const EMPLOYEE_TYPES: Array<EmployeeType> = [
-    'teacher',
-    'administration',
-    'supportStaff',
-    'technicalStaff',
-    'serviceStaff',
-    'fired',
-]
+export const vacationTypes: Record<VacationType, string> = {
+    main: 'Основна',
+    forSpecialNatureOfWork: 'За особливий характер праці',
+    social: 'Соціальна',
+    forEmployeeWish: 'За бажанням працівника',
+    byAgreement: 'За згодою сторін',
+}
+
+export const employeeTypes: Record<EmployeeType, string> = {
+    administration: 'Адміністрація',
+    fired: 'Звільнені',
+    serviceStaff: 'Обслуговуючий персонал',
+    supportStaff: 'Допоміжний персонал',
+    teacher: 'Вчителі',
+    technicalStaff: 'Технічний персонал',
+}
 
 const createEmployeeTypeFilter = () => {
     const { subscribe, set } = writable<EmployeeType | null>(null)

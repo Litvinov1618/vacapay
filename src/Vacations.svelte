@@ -1,15 +1,14 @@
 <script type="ts">
     import type { EmployeeData, Vacation } from './types'
-    import { employeeList } from './stores'
+    import { employeeList, vacationTypes } from './stores'
     import AddVacationsGroupForm from './AddVacationsGroupForm.svelte'
-    import translateVacationType from './translateVacationType'
 
     export let employee: EmployeeData
 
     const { changeEmployeeTotalVacationDays, changeEmployeeVacationDays } = employeeList
 
     const handleTotalVacationDaysChange = (vacation: Vacation) => {
-        const newTotalVacationDays = prompt(translateVacationType(vacation.type), vacation.totalDays.toLocaleString())
+        const newTotalVacationDays = prompt(vacationTypes[vacation.type], vacation.totalDays.toLocaleString())
 
         if (!newTotalVacationDays) return
 
@@ -26,8 +25,14 @@
 
         if (!daysToDeduct) return
 
+        if (+daysToDeduct < 14) {
+            if (
+                !confirm('Кількість днів менша за мінімальну: ' + 14 + '. Ви точно збираєтесь вказати цю кількість днів?')
+            ) deductVacationPay(selectedEmployee, selectedVacation)
+        }
+
         if (+daysToDeduct > selectedVacation.vacationDays) {
-            alert('Кільіксть днів більша допустимої')
+            alert('Кільіксть днів більша допустимої: ' + selectedVacation.vacationDays)
             deductVacationPay(selectedEmployee, selectedVacation)
         }
 
@@ -42,7 +47,7 @@
 
 {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}
     <div on:dblclick={() => handleTotalVacationDaysChange(vacation)}>
-        <b>{translateVacationType(vacation.type)}</b>: {vacation.vacationDays} з
+        <b>{vacationTypes[vacation.type]}</b>: {vacation.vacationDays} з
         {vacation.totalDays} днів
         {#if vacation.isPaid}
             (Оплачувана)

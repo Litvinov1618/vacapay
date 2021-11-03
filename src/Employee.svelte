@@ -5,8 +5,7 @@
     import TrashIcon from './TrashIcon.svelte'
     import type { EmployeeData } from './types'
     import Vacations from './Vacations.svelte'
-    import { employeeList, EMPLOYEE_TYPES, employeeTypeFilter, expandedEmployeeCardId } from './stores'
-    import translateEmployeeType from './translateEmployeeType'
+    import { employeeList, employeeTypeFilter, employeeTypes, expandedEmployeeCardId } from './stores'
 
     const { changeEmployeeInfo, fireEmployee, changeEmployeeType } = employeeList
 
@@ -41,10 +40,7 @@
 </script>
 
 <div class={`Employee ${isFired ? 'Employee-Fired' : ''}`}>
-    <div
-        class="Employee-Header"
-        on:click={() => expandedEmployeeCardId.setId(isEmployeeCardOpened ? '' : employee.id)}
-    >
+    <div class="Employee-Header" on:click={() => expandedEmployeeCardId.setId(isEmployeeCardOpened ? '' : employee.id)}>
         <div class="Employee-HeaderInfo">
             <div on:dblclick={() => handleInfoChange('name')}>
                 <b>ПІБ</b>: {employee.name}
@@ -53,7 +49,7 @@
                 <b>Посада</b>: {employee.position}
             </div>
         </div>
-        <AngleRightIcon isDropped={isEmployeeCardOpened} />
+        <AngleRightIcon dropped={isEmployeeCardOpened} />
     </div>
     <div hidden={!isEmployeeCardOpened} class="Employee-Vacations">
         <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
@@ -64,13 +60,15 @@
             {/if}
             {#if isChangeEmployeeTypeFormShown}
                 <select on:change={handleEmployeeTypeChange}>
-                    {#each EMPLOYEE_TYPES as employeeType}
+                    {#each Object.keys(employeeTypes) as employeeType}
                         <option value={employeeType} selected={employee.employeeType === employeeType}>
-                            {translateEmployeeType(employeeType)}
+                            {employeeTypes[employeeType]}
                         </option>
                     {/each}
                 </select>
             {/if}
+        {/if}
+        {#if isFired}
             <button on:click={handleFireEmployee} class="Employee-Button">
                 <TrashIcon />
             </button>
