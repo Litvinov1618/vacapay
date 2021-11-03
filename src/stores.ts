@@ -10,7 +10,7 @@ const createEmployeeList = () => {
             const employeeList = []
             querySnapshot.forEach(element => employeeList.push({ ...element.data(), id: element.id }))
 
-            set(employeeList)
+            set(employeeList.sort((a, b) => a.name.localeCompare(b.name, 'ua')))
         })
     }
 

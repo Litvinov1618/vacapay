@@ -1,5 +1,5 @@
 export default {
-    apiKey: "AIzaSyDpNgk4i8Nc-ayAen6XiUX5gH3s8yj4Wxo",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "vacapay.firebaseapp.com",
     projectId: "vacapay",
     storageBucket: "vacapay.appspot.com",

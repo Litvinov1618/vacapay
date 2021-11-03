@@ -22,7 +22,6 @@
 
             return true
         })
-        .sort((a, b) => a.name.localeCompare(b.name, 'ua'))
 
     let isVacationCalendarShown = false
 </script>
