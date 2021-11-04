@@ -30,7 +30,7 @@
     }
 
     const handleFireEmployee = () => {
-        if (!confirm('Ви дійсно бажаєте звільнити цього працівника?')) return
+        if (!confirm('Ви точно бажаєте видалити цього працівника з бази даних?')) return
         fireEmployee(employee.id)
         expandedEmployeeCardId.setId('')
     }

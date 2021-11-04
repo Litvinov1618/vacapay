@@ -27,8 +27,11 @@
 
         if (+daysToDeduct < 14) {
             if (
-                !confirm('Кількість днів менша за мінімальну: ' + 14 + '. Ви точно збираєтесь вказати цю кількість днів?')
-            ) deductVacationPay(selectedEmployee, selectedVacation)
+                !confirm(
+                    'Кількість днів менша за мінімальну: ' + 14 + '. Ви точно збираєтесь вказати цю кількість днів?',
+                )
+            )
+                deductVacationPay(selectedEmployee, selectedVacation)
         }
 
         if (+daysToDeduct > selectedVacation.vacationDays) {
