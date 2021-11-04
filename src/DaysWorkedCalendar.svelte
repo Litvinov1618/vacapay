@@ -7,13 +7,13 @@
     $: daysWorked = dayjs($endWorkingStore?.selected).businessDiff(dayjs($startWorkingStore?.selected), 'day')
 </script>
 
-<div class="VacationCalendar">
+<div class="DaysWorked-Calendar">
     {#if daysWorked}
         <div style="color: #b08624;">
             Днiв вiдпрацьовано: {daysWorked}
         </div>
     {/if}
-    <div class="VacationCalendar-DatePickers">
+    <div class="DaysWorked-Calendar-DatePickers">
         <div>
             <p>Вступив на посаду:</p>
             <Datepicker
@@ -30,11 +30,11 @@
 </div>
 
 <style>
-    .VacationCalendar {
+    .DaysWorked-Calendar {
         padding: 30px 0;
     }
 
-    .VacationCalendar-DatePickers {
+    .DaysWorked-Calendar-DatePickers {
         display: flex;
         justify-content: space-between;
         width: 360px;

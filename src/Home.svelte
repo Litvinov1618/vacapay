@@ -1,6 +1,6 @@
 <script lang="ts">
     import Employee from './Employee.svelte'
-    import VacationCalendar from './VacationCalendar.svelte'
+    import DaysWorkedCalendar from './DaysWorkedCalendar.svelte'
     import { Link } from 'svelte-navigator'
     import DeleteIcon from './DeleteIcon.svelte'
     import { employeeList, employeeTypeFilter, employeeTypes } from './stores'
@@ -30,10 +30,10 @@
     <h1 class="Home-Header">Vacapay</h1>
     <div>
         <button on:click={() => (isVacationCalendarShown = !isVacationCalendarShown)} class="Home-AddEmployeeButton">
-            Календар відпусток
+            Календар відпрацьованих днів
         </button>
         {#if isVacationCalendarShown}
-            <VacationCalendar />
+            <DaysWorkedCalendar />
         {/if}
     </div>
     <div class="Home-Filters">
