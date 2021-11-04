@@ -1,17 +1,15 @@
 <script lang="ts">
     import { employeeList, employeeTypes } from './stores'
-    import { Link } from 'svelte-navigator'
+    import { Link, useNavigate } from 'svelte-navigator'
 
     import type { EmployeeType } from './types'
 
     let name: string, employeeType: EmployeeType, position: string
+    const navigate = useNavigate()
 
     const handleFormSubmit = () => {
         if (name && employeeType && position) {
-            employeeList.addEmployee({ name, employeeType, position, vacations: [] })
-            name = ''
-            employeeType = undefined
-            position = ''
+            employeeList.addEmployee({ name, employeeType, position, vacations: [] }).then(() => navigate('/'))
         }
     }
 </script>

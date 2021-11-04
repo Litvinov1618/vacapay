@@ -80,7 +80,7 @@
     .Employee {
         text-align: start;
         border: 2px solid #15bd2e;
-        margin-bottom: 15px;
+        margin: 10px 0;
     }
 
     .Employee-Fired {

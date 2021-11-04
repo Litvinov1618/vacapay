@@ -29,7 +29,6 @@
 <main class="Home">
     <h1 class="Home-Header">Vacapay</h1>
     <div>
-        <Link class="Home-AddEmployeeButton" to="/addEmployee">Додати працівника</Link>
         <button on:click={() => (isVacationCalendarShown = !isVacationCalendarShown)} class="Home-AddEmployeeButton">
             Календар відпусток
         </button>
@@ -71,6 +70,7 @@
                 {/if}
             </div>
         </label>
+        <Link to="addEmployee">Додати працівника</Link>
     </div>
     {#if filteredEmployeeList.length}
         {#each filteredEmployeeList as employee (employee.id)}
