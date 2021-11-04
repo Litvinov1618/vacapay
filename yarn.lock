@@ -30,6 +30,11 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
+"@backtolife/dayjs-business-days@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@backtolife/dayjs-business-days/-/dayjs-business-days-1.0.0.tgz#cefa99d59ac930ba3f317520681cb0dd24d0a719"
+  integrity sha512-kqRP5apnmc9i8p/VUzF5mtk2rk9RvTUtJfS6ko2kiENAgY2UDFI4Ma+Hdg1zSoibmu+FqqJW+BJB1Vmdw72urA==
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
@@ -751,11 +756,6 @@ cross-spawn@^7.0.2:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
-
-dayjs-business-days@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/dayjs-business-days/-/dayjs-business-days-1.0.4.tgz#36e93e7566149e175c1541d92ce16e12145412bf"
-  integrity sha512-kmb8Hvlhmv7INc2YXWew4SaEBJprqJ9C48CdlO1NTsqQa31ZEcO48ziFa3YFr5W9rdwB1nUmd5iIkLwgCkJ8nA==
 
 dayjs@^1.10.6, dayjs@^1.10.7:
   version "1.10.7"

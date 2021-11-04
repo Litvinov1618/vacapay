@@ -32,9 +32,9 @@
     "typescript": "^4.0.0"
   },
   "dependencies": {
+    "@backtolife/dayjs-business-days": "^1.0.0",
     "@types/firebase": "^3.2.1",
     "dayjs": "^1.10.7",
-    "dayjs-business-days": "^1.0.4",
     "firebase": "^8.10.0",
     "gh-pages": "^3.2.3",
     "rollup-plugin-dotenv": "^0.3.0",
