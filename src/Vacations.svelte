@@ -4,6 +4,7 @@
     import AddVacationsGroupForm from './AddVacationsGroupForm.svelte'
 
     export let employee: EmployeeData
+    let compensations = []
 
     const { changeEmployeeTotalVacationDays, changeEmployeeVacationDays } = employeeList
 
@@ -20,7 +21,7 @@
         changeEmployeeTotalVacationDays(employee, vacation, +newTotalVacationDays)
     }
 
-    const deductVacationPay = (selectedEmployee: EmployeeData, selectedVacation: Vacation) => {
+    const deductVacations = (selectedEmployee: EmployeeData, selectedVacation: Vacation) => {
         const daysToDeduct = window.prompt(`На скільки днів ${selectedEmployee.name} бере відпустку?`)
 
         if (!daysToDeduct) return
@@ -31,17 +32,17 @@
                     'Кількість днів менша за мінімальну: ' + 14 + '. Ви точно збираєтесь вказати цю кількість днів?',
                 )
             )
-                deductVacationPay(selectedEmployee, selectedVacation)
+                deductVacations(selectedEmployee, selectedVacation)
         }
 
         if (+daysToDeduct > selectedVacation.vacationDays) {
             alert('Кільіксть днів більша допустимої: ' + selectedVacation.vacationDays)
-            deductVacationPay(selectedEmployee, selectedVacation)
+            deductVacations(selectedEmployee, selectedVacation)
         }
 
         if (daysToDeduct === '' || isNaN(+daysToDeduct)) {
             alert('Ви маєте передати число')
-            deductVacationPay(selectedEmployee, selectedVacation)
+            deductVacations(selectedEmployee, selectedVacation)
         }
 
         changeEmployeeVacationDays(selectedEmployee, selectedVacation, +daysToDeduct)
@@ -57,7 +58,15 @@
         {:else}
             (Неоплачувана)
         {/if}
-        <button on:click={() => deductVacationPay(employee, vacation)}>Відняти відпускні</button>
+        {#if employee.employeeType !== 'fired'}
+            <button on:click={() => deductVacations(employee, vacation)}>Відняти відпускні</button>
+        {:else if vacation.isPaid}
+            <button
+                on:click={() =>
+                    alert('Компенсацiя складає: ' + +prompt('Вкажіть вартість одного дня') * vacation.vacationDays + ' грн')}
+                >Порахувати компенсацію</button
+            >
+        {/if}
     </div>
 {/each}
 <AddVacationsGroupForm {employee} />

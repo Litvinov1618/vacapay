@@ -54,19 +54,16 @@
     <div hidden={!isEmployeeCardOpened} class="Employee-Vacations">
         <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
         <Vacations {employee} />
-        {#if !isFired}
-            {#if !isChangeEmployeeTypeFormShown}
-                <button on:click={() => (isChangeEmployeeTypeFormShown = true)}> Змінити категорію працівника </button>
-            {/if}
-            {#if isChangeEmployeeTypeFormShown}
-                <select on:change={handleEmployeeTypeChange}>
-                    {#each Object.keys(employeeTypes) as employeeType}
-                        <option value={employeeType} selected={employee.employeeType === employeeType}>
-                            {employeeTypes[employeeType]}
-                        </option>
-                    {/each}
-                </select>
-            {/if}
+        {#if !isChangeEmployeeTypeFormShown}
+            <button on:click={() => (isChangeEmployeeTypeFormShown = true)}> Змінити категорію працівника </button>
+        {:else}
+            <select on:change={handleEmployeeTypeChange}>
+                {#each Object.keys(employeeTypes) as employeeType}
+                    <option value={employeeType} selected={employee.employeeType === employeeType}>
+                        {employeeTypes[employeeType]}
+                    </option>
+                {/each}
+            </select>
         {/if}
         {#if isFired}
             <button on:click={handleFireEmployee} class="Employee-Button">
