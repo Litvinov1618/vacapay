@@ -1,10 +1,11 @@
 <script type="ts">
+    import { getContext } from 'svelte'
     import type { EmployeeData, Vacation } from './types'
     import { employeeList, vacationTypes } from './stores'
     import AddVacationsGroupForm from './AddVacationsGroupForm.svelte'
+    import DeductVacationsModal from './DeductVacationsModal.svelte'
 
     export let employee: EmployeeData
-    let compensations = []
 
     const { changeEmployeeTotalVacationDays, changeEmployeeVacationDays } = employeeList
 
@@ -21,32 +22,7 @@
         changeEmployeeTotalVacationDays(employee, vacation, +newTotalVacationDays)
     }
 
-    const deductVacations = (selectedEmployee: EmployeeData, selectedVacation: Vacation) => {
-        const daysToDeduct = window.prompt(`На скільки днів ${selectedEmployee.name} бере відпустку?`)
-
-        if (!daysToDeduct) return
-
-        if (+daysToDeduct < 14) {
-            if (
-                !confirm(
-                    'Кількість днів менша за мінімальну: ' + 14 + '. Ви точно збираєтесь вказати цю кількість днів?',
-                )
-            )
-                deductVacations(selectedEmployee, selectedVacation)
-        }
-
-        if (+daysToDeduct > selectedVacation.vacationDays) {
-            alert('Кільіксть днів більша допустимої: ' + selectedVacation.vacationDays)
-            deductVacations(selectedEmployee, selectedVacation)
-        }
-
-        if (daysToDeduct === '' || isNaN(+daysToDeduct)) {
-            alert('Ви маєте передати число')
-            deductVacations(selectedEmployee, selectedVacation)
-        }
-
-        changeEmployeeVacationDays(selectedEmployee, selectedVacation, +daysToDeduct)
-    }
+    const { open } = getContext('simple-modal')
 </script>
 
 {#each employee.vacations as vacation (Math.floor(Math.random() * 1000))}
@@ -59,12 +35,19 @@
             (Неоплачувана)
         {/if}
         {#if employee.employeeType !== 'fired'}
-            <button on:click={() => deductVacations(employee, vacation)}>Відняти відпускні</button>
+            <button
+                on:click={() =>
+                    open(DeductVacationsModal, { selectedEmployee: employee, selectedVacation: vacation })}
+                >Відняти відпускні</button
+            >
         {:else if vacation.isPaid}
             <button
                 on:click={() =>
-                    alert('Компенсацiя складає: ' + +prompt('Вкажіть вартість одного дня') * vacation.vacationDays + ' грн')}
-                >Порахувати компенсацію</button
+                    alert(
+                        'Компенсацiя складає: ' +
+                            +prompt('Вкажіть вартість одного дня') * vacation.vacationDays +
+                            ' грн',
+                    )}>Порахувати компенсацію</button
             >
         {/if}
     </div>

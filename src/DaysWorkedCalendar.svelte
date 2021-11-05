@@ -4,13 +4,13 @@
 
     let startWorkingStore, endWorkingStore
 
-    $: daysWorked = dayjs($endWorkingStore?.selected).businessDiff(dayjs($startWorkingStore?.selected), 'day')
+    $: daysWorked = dayjs($endWorkingStore?.selected).businessDiff(dayjs($startWorkingStore?.selected))
 </script>
 
 <div class="DaysWorked-Calendar">
     {#if daysWorked}
         <div style="color: #b08624;">
-            Днiв вiдпрацьовано: {daysWorked}
+            Днiв вiдпрацьовано: {daysWorked > 0 ? daysWorked : 0}
         </div>
     {/if}
     <div class="DaysWorked-Calendar-DatePickers">
@@ -31,7 +31,7 @@
 
 <style>
     .DaysWorked-Calendar {
-        padding: 30px 0;
+        padding-bottom: 25px;
     }
 
     .DaysWorked-Calendar-DatePickers {

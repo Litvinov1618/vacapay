@@ -104,6 +104,7 @@
     .Employee-VacationsHeader {
         border-bottom: 1px solid #000;
         margin-bottom: 5px;
+        padding-bottom: 5px;
     }
 
     .Employee-Button {
