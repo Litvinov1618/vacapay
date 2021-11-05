@@ -14,7 +14,7 @@
         </div>
     {/if}
     <div class="DaysWorked-Calendar-DatePickers">
-        <div>
+        <div on:wheel|capture={e => e.stopPropagation()}>
             <p>Вступив на посаду:</p>
             <Datepicker
                 start={dayjs().add(-100, 'year').toDate()}
@@ -22,7 +22,7 @@
                 bind:store={startWorkingStore}
             />
         </div>
-        <div>
+        <div on:wheel|capture={e => e.stopPropagation()}>
             <p>Звiльнився:</p>
             <Datepicker start={dayjs().add(-100, 'year').toDate()} startOfWeekIndex={1} bind:store={endWorkingStore} />
         </div>

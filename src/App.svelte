@@ -6,10 +6,10 @@
 </script>
 
 <Modal>
-    <Router>
+    <Router basepath={location.pathname}>
         <div>
             <Route path="/" component={Home} />
-            <Route path="addEmployee" component={EmployeeForm} />
+            <Route path="/addEmployee" component={EmployeeForm} />
         </div>
     </Router>
 </Modal>

@@ -54,11 +54,11 @@
         Кількість днів: {vacationDays > 0 ? vacationDays : 0}
     </div>
     <div class="DeductVacationsModal-Calendars">
-        <div class="DeductVacationsModal-Calendar">
+        <div class="DeductVacationsModal-Calendar" on:wheel|capture={e => e.stopPropagation()}>
             <p class="DeductVacationsModal-CalendarLabel">Перший день:</p>
             <InlineCalendar {theme} start={new Date()} startOfWeekIndex={1} bind:store={startVacationStore} />
         </div>
-        <div class="DeductVacationsModal-Calendar">
+        <div class="DeductVacationsModal-Calendar" on:wheel|capture={e => e.stopPropagation()}>
             <p class="DeductVacationsModal-CalendarLabel">Останній день:</p>
             <InlineCalendar {theme} startOfWeekIndex={1} start={new Date()} bind:store={endVacationStore} />
         </div>
