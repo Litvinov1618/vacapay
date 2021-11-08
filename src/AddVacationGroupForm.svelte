@@ -22,7 +22,7 @@
 
 {#if !isAddVacationGroupFormShown}
     <div>
-        <button on:click={() => (isAddVacationGroupFormShown = true)}> Додати новий тип відпустки </button>
+        <button on:click={() => (isAddVacationGroupFormShown = true)}>Додати новий тип відпустки</button>
     </div>
 {/if}
 {#if isAddVacationGroupFormShown}

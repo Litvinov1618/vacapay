@@ -2,7 +2,7 @@
     import { getContext } from 'svelte'
     import type { EmployeeData, Vacation } from './types'
     import { employeeList, vacationTypes } from './stores'
-    import AddVacationsGroupForm from './AddVacationsGroupForm.svelte'
+    import AddVacationGroupForm from './AddVacationGroupForm.svelte'
     import DeductVacationsModal from './DeductVacationsModal.svelte'
 
     export let employee: EmployeeData
@@ -52,4 +52,4 @@
         {/if}
     </div>
 {/each}
-<AddVacationsGroupForm {employee} />
+<AddVacationGroupForm {employee} />
