@@ -1,10 +1,12 @@
 <script type="ts">
     export let dropped: boolean
 
-    const name = 'AngleRight'
+    import initCn from '../cn'
+
+    const cn = initCn('AngleRight')
 </script>
 
-<div class={`${name} ${dropped ? `${name}-Dropped` : ''}`} />
+<div class={`${cn()} ${dropped ? cn('Dropped') : ''}`} />
 
 <style lang="scss">
     .AngleRight {

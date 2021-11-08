@@ -1,8 +1,10 @@
 <script>
-    const name = 'DeleteIcon'
+    import initCn from '../cn'
+
+    const cn = initCn('DeleteIcon')
 </script>
 
-<div class={name} />
+<div class={cn()} />
 
 <style lang="scss">
     .DeleteIcon {
