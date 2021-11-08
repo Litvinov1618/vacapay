@@ -3,11 +3,12 @@
 
     import { getContext } from 'svelte'
     import { InlineCalendar } from 'svelte-calendar'
+    import initCn from './cn'
     import dayjs, { HOLIDAYS } from './dayjs'
     import { employeeList } from './stores'
     import type { EmployeeData, Vacation } from './types'
 
-    const name = 'DeductVacationsModal'
+    const cn = initCn('DeductVacationsModal')
     const MINIMUM_VACATION_DAYS = 14
     let startVacationStore, endVacationStore, errorMessage: string, vacationDays: number
 
@@ -49,26 +50,26 @@
 </script>
 
 <div>
-    <div class={`${name}-Header`}>
+    <div class={cn('Header')}>
         На скільки днів {selectedEmployee.name} бере відпустку?
     </div>
-    <div class={`${name}-VacationDays`}>
+    <div class={cn('VacationDays')}>
         Кількість днів: {vacationDays > 0 ? vacationDays : 0}
     </div>
-    <div class={`${name}-Calendars`}>
-        <div class={`${name}-Calendar`} on:wheel|capture={e => e.stopPropagation()}>
-            <p class={`${name}-CalendarLabel`}>Перший день:</p>
+    <div class={cn('Calendars')}>
+        <div class={cn('Calendar')} on:wheel|capture={e => e.stopPropagation()}>
+            <p class={cn('CalendarLabel')}>Перший день:</p>
             <InlineCalendar {theme} start={new Date()} startOfWeekIndex={1} bind:store={startVacationStore} />
         </div>
-        <div class={`${name}-Calendar`} on:wheel|capture={e => e.stopPropagation()}>
-            <p class={`${name}-CalendarLabel`}>Останній день:</p>
+        <div class={cn('Calendar')} on:wheel|capture={e => e.stopPropagation()}>
+            <p class={cn('CalendarLabel')}>Останній день:</p>
             <InlineCalendar {theme} startOfWeekIndex={1} start={new Date()} bind:store={endVacationStore} />
         </div>
     </div>
 
-    <div class={`${name}-Actions`}>
+    <div class={cn('Actions')}>
         {#if errorMessage}
-            <div class={`${name}-ActionsError`}>{errorMessage}</div>
+            <div class={cn('ActionsError')}>{errorMessage}</div>
         {/if}
         <button
             on:click={() => changeEmployeeVacationDays(selectedEmployee, selectedVacation, vacationDays).then(close)}

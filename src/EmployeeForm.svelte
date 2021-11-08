@@ -1,9 +1,10 @@
 <script lang="ts">
     import { Link, useNavigate } from 'svelte-navigator'
+    import initCn from './cn'
     import { employeeList, employeeTypes } from './stores'
     import type { EmployeeType } from './types'
 
-    const name = 'EmployeeForm'
+    const cn = initCn('EmployeeForm')
     let employeeName: string, employeeType: EmployeeType, position: string
     const navigate = useNavigate()
 
@@ -16,19 +17,19 @@
     }
 </script>
 
-<form action="submit" on:submit|preventDefault={handleFormSubmit} class={name}>
+<form action="submit" on:submit|preventDefault={handleFormSubmit} class={cn()}>
     <Link to="/">Назад</Link>
-    <label class={`${name}-Label`}>
+    <label class={cn('Label')}>
         ПІБ Працівника
-        <input type="text" class={`${name}-Input`} bind:value={employeeName} required />
+        <input type="text" class={cn('Input')} bind:value={employeeName} required />
     </label>
-    <label class={`${name}-Label`}>
+    <label class={cn('Label')}>
         Посада
-        <input type="text" class={`${name}-Input`} bind:value={position} required />
+        <input type="text" class={cn('Input')} bind:value={position} required />
     </label>
-    <label class={`${name}-Label`}>
+    <label class={cn('Label')}>
         Тип посади
-        <select class={`${name}-Input`} bind:value={employeeType} required>
+        <select class={cn('Input')} bind:value={employeeType} required>
             <option value="" selected disabled hidden />
             {#each Object.keys(employeeTypes).filter(key => key !== 'fired') as employeeType}
                 <option value={employeeType}>{employeeTypes[employeeType]}</option>

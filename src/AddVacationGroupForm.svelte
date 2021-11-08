@@ -1,8 +1,8 @@
 <script lang="ts">
     export let employee: EmployeeData
 
-    import type { EmployeeData, VacationType } from './types'
     import { employeeList, vacationTypes } from './stores'
+    import type { EmployeeData, VacationType } from './types'
 
     let isAddVacationGroupFormShown = false
 

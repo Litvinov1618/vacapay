@@ -4,8 +4,9 @@
     import DaysWorkedCalendar from './DaysWorkedCalendar.svelte'
     import DeleteIcon from './icons/DeleteIcon.svelte'
     import { employeeList, employeeTypeFilter, employeeTypes } from './stores'
+    import initCn from './cn'
 
-    const name = 'Home'
+    const cn = initCn('Home')
     let employeeNameFilter = ''
 
     $: filteredEmployeeList = $employeeList
@@ -27,23 +28,20 @@
     let isVacationCalendarShown = false
 </script>
 
-<main class={name}>
-    <h1 class={`${name}-Header`}>Vacapay</h1>
+<main class={cn()}>
+    <h1 class={cn('Header')}>Vacapay</h1>
     <div>
-        <button
-            on:click={() => (isVacationCalendarShown = !isVacationCalendarShown)}
-            class={`${name}-AddEmployeeButton`}
-        >
+        <button on:click={() => (isVacationCalendarShown = !isVacationCalendarShown)} class={cn('AddEmployeeButton')}>
             Календар відпрацьованих днів
         </button>
         {#if isVacationCalendarShown}
             <DaysWorkedCalendar />
         {/if}
     </div>
-    <div class={`${name}-Filters`}>
+    <div class={cn('Filters')}>
         <button
             on:click={() => employeeTypeFilter.setType(null)}
-            class={`${name}-Filter`}
+            class={cn('Filter')}
             style={$employeeTypeFilter || 'border-color: #15bd2e;'}
         >
             Всi
@@ -51,7 +49,7 @@
         {#each Object.keys(employeeTypes) as employeeType}
             <button
                 on:click={() => employeeTypeFilter.setType(employeeType)}
-                class={`${name}-Filter ${employeeType === 'fired' ? `${name}-Filter-Fired` : ''}`}
+                class={`${cn('Filter')} ${employeeType === 'fired' ? cn('Filter-Fired') : ''}`}
                 style={employeeType === $employeeTypeFilter
                     ? employeeType === 'fired'
                         ? 'border-color: #bd1b15;'
@@ -65,10 +63,10 @@
     <div>
         <label for="search_employee">
             Знайти працівника:{' '}
-            <div class={`${name}-Search`}>
+            <div class={cn('Search')}>
                 <input type="text" bind:value={employeeNameFilter} name="search_employee" />
                 {#if employeeNameFilter}
-                    <div class={`${name}-SearchClear`} on:click={() => (employeeNameFilter = '')}>
+                    <div class={cn('SearchClear')} on:click={() => (employeeNameFilter = '')}>
                         <DeleteIcon />
                     </div>
                 {/if}
@@ -81,7 +79,7 @@
             <Employee {employee} />
         {/each}
     {:else}
-        <p class={`${name}-NoEmployeesMessage`}>Працівників не знайдено</p>
+        <p class={cn('NoEmployeesMessage')}>Працівників не знайдено</p>
     {/if}
 </main>
 

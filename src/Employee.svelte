@@ -3,11 +3,12 @@
 
     import AngleRightIcon from './icons/AngleRightIcon.svelte'
     import TrashIcon from './icons/TrashIcon.svelte'
-    import type { EmployeeData } from './types'
     import Vacations from './Vacations.svelte'
     import { employeeList, employeeTypeFilter, employeeTypes, expandedEmployeeCardId } from './stores'
+    import initCn from './cn'
+    import type { EmployeeData } from './types'
 
-    const name = 'Employee'
+    const cn = initCn('Employee')
 
     const { changeEmployeeInfo, fireEmployee, changeEmployeeType } = employeeList
 
@@ -41,12 +42,9 @@
     let isChangeEmployeeTypeFormShown = false
 </script>
 
-<div class={`${name} ${isFired ? `${name}-Fired` : ''}`}>
-    <div
-        class={`${name}-Header`}
-        on:click={() => expandedEmployeeCardId.setId(isEmployeeCardOpened ? '' : employee.id)}
-    >
-        <div class={`${name}-HeaderInfo`}>
+<div class={`${cn()} ${isFired ? cn('Fired') : ''}`}>
+    <div class={cn('Header')} on:click={() => expandedEmployeeCardId.setId(isEmployeeCardOpened ? '' : employee.id)}>
+        <div class={cn('HeaderInfo')}>
             <div on:dblclick={() => handleInfoChange('name')}>
                 <b>ПІБ</b>: {employee.name}
             </div>
@@ -56,8 +54,8 @@
         </div>
         <AngleRightIcon dropped={isEmployeeCardOpened} />
     </div>
-    <div hidden={!isEmployeeCardOpened} class={`${name}-Vacations`}>
-        <div class={`${name}-VacationsHeader`}><b>Відпустки</b>:</div>
+    <div hidden={!isEmployeeCardOpened} class={cn('Vacations')}>
+        <div class={cn('VacationsHeader')}><b>Відпустки</b>:</div>
         <Vacations {employee} />
         {#if !isChangeEmployeeTypeFormShown}
             <button on:click={() => (isChangeEmployeeTypeFormShown = true)}> Змінити категорію працівника </button>
@@ -71,7 +69,7 @@
             </select>
         {/if}
         {#if isFired}
-            <button on:click={handleFireEmployee} class={`${name}-Button`}>
+            <button on:click={handleFireEmployee} class={cn('Button')}>
                 <TrashIcon />
             </button>
         {/if}

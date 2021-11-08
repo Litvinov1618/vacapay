@@ -1,8 +1,8 @@
 <script>
     import { Router, Route } from 'svelte-navigator'
+    import Modal from 'svelte-simple-modal'
     import Home from './Home.svelte'
     import EmployeeForm from './EmployeeForm.svelte'
-    import Modal from 'svelte-simple-modal'
 </script>
 
 <Modal>
