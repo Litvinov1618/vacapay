@@ -5,23 +5,19 @@ import type { EmployeeData, EmployeeType, Vacation, VacationType } from './types
 const createEmployeeList = () => {
     const { subscribe, set } = writable([])
 
-    const updateStore = () => {
-        db.get().then(querySnapshot => {
-            const employeeList = []
-            querySnapshot.forEach(element => employeeList.push({ ...element.data(), id: element.id }))
+    db.onSnapshot(doc => {
+        const employeeList = []
+        doc.forEach(element => employeeList.push({ ...element.data(), id: element.id }))
 
-            set(employeeList.sort((a, b) => a.name.localeCompare(b.name, 'ua')))
-        })
-    }
+        set(employeeList.sort((a, b) => a.name.localeCompare(b.name, 'ua')))
+    })
 
     const updateEmployeeInfo = (employeeId: string, newEmployeeData: unknown) =>
-        db.doc(employeeId).update(newEmployeeData).then(updateStore)
-
-    updateStore()
+        db.doc(employeeId).update(newEmployeeData)
 
     return {
         subscribe,
-        fireEmployee: (employeeId: string) => db.doc(employeeId).delete().then(updateStore),
+        fireEmployee: (employeeId: string) => db.doc(employeeId).delete(),
         changeEmployeeInfo: (employeeId: string, newEmployeeInfo: EmployeeData) =>
             updateEmployeeInfo(employeeId, newEmployeeInfo),
         changeEmployeeVacationDays: (
@@ -51,7 +47,7 @@ const createEmployeeList = () => {
                     }
                 }),
             }),
-        addEmployee: (employeeToAdd: Omit<EmployeeData, 'id'>) => db.add(employeeToAdd).then(updateStore),
+        addEmployee: (employeeToAdd: Omit<EmployeeData, 'id'>) => db.add(employeeToAdd),
         addVacationsGroup: (selectedEmployee: EmployeeData, newVacationsGroup: Vacation) =>
             updateEmployeeInfo(selectedEmployee.id, { vacations: [...selectedEmployee.vacations, newVacationsGroup] }),
         changeEmployeeType: (employeeToChange: EmployeeData, newEmployeeType: EmployeeType) =>
