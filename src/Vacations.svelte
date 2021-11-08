@@ -36,8 +36,7 @@
         {/if}
         {#if employee.employeeType !== 'fired'}
             <button
-                on:click={() =>
-                    open(DeductVacationsModal, { selectedEmployee: employee, selectedVacation: vacation })}
+                on:click={() => open(DeductVacationsModal, { selectedEmployee: employee, selectedVacation: vacation })}
                 >Відняти відпускні</button
             >
         {:else if vacation.isPaid}

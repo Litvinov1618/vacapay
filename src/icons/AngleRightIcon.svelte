@@ -1,10 +1,12 @@
 <script type="ts">
     export let dropped: boolean
+
+    const name = 'AngleRight'
 </script>
 
-<div class={`AngleRight ${dropped ? 'AngleRight-Dropped' : ''}`} />
+<div class={`${name} ${dropped ? `${name}-Dropped` : ''}`} />
 
-<style>
+<style lang="scss">
     .AngleRight {
         width: 15px;
         height: 15px;
@@ -14,9 +16,9 @@
         transition: transform 0.3s;
         position: relative;
         top: 10px;
-    }
 
-    .AngleRight-Dropped {
-        transform: rotate(135deg);
+        &-Dropped {
+            transform: rotate(135deg);
+        }
     }
 </style>
