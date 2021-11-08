@@ -1,32 +1,34 @@
 <script lang="ts">
-    import { employeeList, employeeTypes } from './stores'
     import { Link, useNavigate } from 'svelte-navigator'
-
+    import { employeeList, employeeTypes } from './stores'
     import type { EmployeeType } from './types'
 
-    let name: string, employeeType: EmployeeType, position: string
+    const name = 'EmployeeForm'
+    let employeeName: string, employeeType: EmployeeType, position: string
     const navigate = useNavigate()
 
     const handleFormSubmit = () => {
-        if (name && employeeType && position) {
-            employeeList.addEmployee({ name, employeeType, position, vacations: [] }).then(() => navigate('/'))
+        if (employeeName && employeeType && position) {
+            employeeList
+                .addEmployee({ name: employeeName, employeeType, position, vacations: [] })
+                .then(() => navigate('/'))
         }
     }
 </script>
 
-<form action="submit" on:submit|preventDefault={handleFormSubmit} class="EmployeeForm">
+<form action="submit" on:submit|preventDefault={handleFormSubmit} class={name}>
     <Link to="/">Назад</Link>
-    <label class="EmployeeForm-Label">
+    <label class={`${name}-Label`}>
         ПІБ Працівника
-        <input type="text" class="EmployeeForm-Input" bind:value={name} required />
+        <input type="text" class={`${name}-Input`} bind:value={employeeName} required />
     </label>
-    <label class="EmployeeForm-Label">
+    <label class={`${name}-Label`}>
         Посада
-        <input type="text" class="EmployeeForm-Input" bind:value={position} required />
+        <input type="text" class={`${name}-Input`} bind:value={position} required />
     </label>
-    <label class="EmployeeForm-Label">
+    <label class={`${name}-Label`}>
         Тип посади
-        <select class="EmployeeForm-Input" bind:value={employeeType} required>
+        <select class={`${name}-Input`} bind:value={employeeType} required>
             <option value="" selected disabled hidden />
             {#each Object.keys(employeeTypes).filter(key => key !== 'fired') as employeeType}
                 <option value={employeeType}>{employeeTypes[employeeType]}</option>
@@ -36,21 +38,21 @@
     <button type="submit">Додати працівника до бази</button>
 </form>
 
-<style>
-    .EmployeeForm-Input {
-        display: block;
-        margin-top: 10px;
-    }
-
+<style lang="scss">
     .EmployeeForm {
         max-width: 500px;
         margin: 0 auto;
         padding: 20px 0;
-    }
 
-    .EmployeeForm-Label {
-        display: flex;
-        flex-direction: column;
-        text-align: start;
+        &-Input {
+            display: block;
+            margin-top: 10px;
+        }
+
+        &-Label {
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+        }
     }
 </style>

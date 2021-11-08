@@ -33,12 +33,10 @@
             {/each}
         </select>
         <input type="number" placeholder="Кількість днів" bind:value={totalDays} />
-        <label style="display: inline;">
-            <select bind:value={isPaid}>
-                <option value={true}>Оплачувана</option>
-                <option value={false}>Неоплачувана</option>
-            </select>
-        </label>
+        <select bind:value={isPaid}>
+            <option value={true}>Оплачувана</option>
+            <option value={false}>Неоплачувана</option>
+        </select>
         <div>
             <button type="submit">Додати</button>
         </div>
