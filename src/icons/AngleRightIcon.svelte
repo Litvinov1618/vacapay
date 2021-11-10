@@ -1,10 +1,14 @@
 <script type="ts">
     export let dropped: boolean
+
+    import initCn from '../cn'
+
+    const cn = initCn('AngleRight')
 </script>
 
-<div class={`AngleRight ${dropped ? 'AngleRight-Dropped' : ''}`} />
+<div class={`${cn()} ${dropped ? cn('Dropped') : ''}`} />
 
-<style>
+<style lang="scss">
     .AngleRight {
         width: 15px;
         height: 15px;
@@ -14,9 +18,9 @@
         transition: transform 0.3s;
         position: relative;
         top: 10px;
-    }
 
-    .AngleRight-Dropped {
-        transform: rotate(135deg);
+        &-Dropped {
+            transform: rotate(135deg);
+        }
     }
 </style>

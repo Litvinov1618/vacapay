@@ -1,13 +1,13 @@
 <script type="ts">
     import { getContext } from 'svelte'
-    import type { EmployeeData, Vacation } from './types'
     import { employeeList, vacationTypes } from './stores'
-    import AddVacationsGroupForm from './AddVacationsGroupForm.svelte'
+    import AddVacationGroupForm from './AddVacationGroupForm.svelte'
     import DeductVacationsModal from './DeductVacationsModal.svelte'
+    import type { EmployeeData, Vacation } from './types'
 
     export let employee: EmployeeData
 
-    const { changeEmployeeTotalVacationDays, changeEmployeeVacationDays } = employeeList
+    const { changeEmployeeTotalVacationDays } = employeeList
 
     const handleTotalVacationDaysChange = (vacation: Vacation) => {
         const newTotalVacationDays = prompt(vacationTypes[vacation.type], vacation.totalDays.toLocaleString())
@@ -36,8 +36,7 @@
         {/if}
         {#if employee.employeeType !== 'fired'}
             <button
-                on:click={() =>
-                    open(DeductVacationsModal, { selectedEmployee: employee, selectedVacation: vacation })}
+                on:click={() => open(DeductVacationsModal, { selectedEmployee: employee, selectedVacation: vacation })}
                 >Відняти відпускні</button
             >
         {:else if vacation.isPaid}
@@ -52,4 +51,4 @@
         {/if}
     </div>
 {/each}
-<AddVacationsGroupForm {employee} />
+<AddVacationGroupForm {employee} />

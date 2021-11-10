@@ -1,13 +1,21 @@
 <script type="ts">
     export let employee: EmployeeData
 
-    import AngleRightIcon from './AngleRightIcon.svelte'
-    import TrashIcon from './TrashIcon.svelte'
-    import type { EmployeeData } from './types'
+    import { getContext } from 'svelte'
+    import AngleRightIcon from './icons/AngleRightIcon.svelte'
+    import TrashIcon from './icons/TrashIcon.svelte'
     import Vacations from './Vacations.svelte'
     import { employeeList, employeeTypeFilter, employeeTypes, expandedEmployeeCardId } from './stores'
+    import initCn from './cn'
+    import type { EmployeeData } from './types'
+    import DatepickerModal from './DatepickerModal.svelte'
+    import dbTimestamp from './dbTimestamp'
+    import dayjs from './dayjs'
 
-    const { changeEmployeeInfo, fireEmployee, changeEmployeeType } = employeeList
+    const cn = initCn('Employee')
+
+    const { changeEmployeeInfo, deleteEmployee, changeEmployeeType, setEmployeeFiredAt, setEmployeeHiredAt } =
+        employeeList
 
     $: isEmployeeCardOpened = $expandedEmployeeCardId === employee.id
 
@@ -29,19 +37,21 @@
         employeeTypeFilter.setType(event.target.value)
     }
 
-    const handleFireEmployee = () => {
+    const handleDeleteEmployee = () => {
         if (!confirm('Ви точно бажаєте видалити цього працівника з бази даних?')) return
-        fireEmployee(employee.id)
+        deleteEmployee(employee.id)
         expandedEmployeeCardId.setId('')
     }
 
     const isFired = employee.employeeType === 'fired'
     let isChangeEmployeeTypeFormShown = false
+
+    const { open } = getContext('simple-modal')
 </script>
 
-<div class={`Employee ${isFired ? 'Employee-Fired' : ''}`}>
-    <div class="Employee-Header" on:click={() => expandedEmployeeCardId.setId(isEmployeeCardOpened ? '' : employee.id)}>
-        <div class="Employee-HeaderInfo">
+<div class={`${cn()} ${isFired ? cn('Fired') : ''}`}>
+    <div class={cn('Header')} on:click={() => expandedEmployeeCardId.setId(isEmployeeCardOpened ? '' : employee.id)}>
+        <div class={cn('HeaderInfo')}>
             <div on:dblclick={() => handleInfoChange('name')}>
                 <b>ПІБ</b>: {employee.name}
             </div>
@@ -51,8 +61,49 @@
         </div>
         <AngleRightIcon dropped={isEmployeeCardOpened} />
     </div>
-    <div hidden={!isEmployeeCardOpened} class="Employee-Vacations">
-        <div class="Employee-VacationsHeader"><b>Відпустки</b>:</div>
+    <div hidden={!isEmployeeCardOpened} class={cn('Vacations')}>
+        <div>
+            <b>Дата прийняття</b>:
+            {#if employee?.hiredAt}
+                {employee?.hiredAt?.toDate().toLocaleDateString('uk-UA') || '--'}
+            {:else}
+                <button
+                    on:click={() =>
+                        open(DatepickerModal, {
+                            onClose: date => setEmployeeHiredAt(employee.id, dbTimestamp.fromDate(date)),
+                        })}
+                >
+                    Додати дату прийняття
+                </button>
+            {/if}
+        </div>
+        <div>
+            <b>Дата звільнення</b>:
+            {#if employee?.firedAt}
+                {employee?.firedAt?.toDate().toLocaleDateString('uk-UA') || '--'}
+            {:else}
+                <button
+                    on:click={() =>
+                        open(DatepickerModal, {
+                            onClose: date =>
+                                confirm(
+                                    'Ви точно бажаєте вказати дату звільнення? У такому разі співробітника буде переведено до категорії "Звільнені"',
+                                ) &&
+                                setEmployeeFiredAt(employee.id, dbTimestamp.fromDate(date)) &&
+                                changeEmployeeType(employee, 'fired') &&
+                                employeeTypeFilter.setType('fired'),
+                        })}
+                >
+                    Додати дату звільнення
+                </button>
+            {/if}
+        </div>
+        {#if employee?.firedAt && employee?.hiredAt}
+            <b>Кількість відпрацьованих днів: </b>{dayjs(employee?.firedAt?.toDate()).businessDiff(
+                dayjs(employee?.hiredAt?.toDate()),
+            )}
+        {/if}
+        <div class={cn('VacationsHeader')}><b>Відпустки</b>:</div>
         <Vacations {employee} />
         {#if !isChangeEmployeeTypeFormShown}
             <button on:click={() => (isChangeEmployeeTypeFormShown = true)}> Змінити категорію працівника </button>
@@ -65,60 +116,58 @@
                 {/each}
             </select>
         {/if}
-        {#if isFired}
-            <button on:click={handleFireEmployee} class="Employee-Button">
-                <TrashIcon />
-            </button>
-        {/if}
+        <button on:click={handleDeleteEmployee} class={cn('Button')}>
+            <TrashIcon />
+        </button>
     </div>
 </div>
 
-<style>
+<style lang="scss">
     .Employee {
         text-align: start;
         border: 2px solid #15bd2e;
         margin: 10px 0;
-    }
 
-    .Employee-Fired {
-        border-color: #bd1b15;
-    }
+        &-Fired {
+            border-color: #bd1b15;
+        }
 
-    .Employee-Header {
-        display: flex;
-        justify-content: space-between;
-        cursor: pointer;
-        padding: 15px;
-    }
+        &-Header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 15px;
+        }
 
-    .Employee-HeaderInfo {
-        display: flex;
-        flex-direction: column;
-    }
+        &-HeaderInfo {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .Employee-Vacations {
-        padding: 15px;
-        padding-top: 0;
-    }
+        &-Vacations {
+            padding: 15px;
+            padding-top: 0;
+        }
 
-    .Employee-VacationsHeader {
-        border-bottom: 1px solid #000;
-        margin-bottom: 5px;
-        padding-bottom: 5px;
-    }
+        &-VacationsHeader {
+            border-bottom: 1px solid #000;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
 
-    .Employee-Button {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 4px;
-        border-radius: 15px;
-        margin: 0;
-        display: block;
-    }
+        &-Button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 15px;
+            margin: 0;
+            display: block;
 
-    .Employee-Button:hover {
-        background: #acacac3d;
-        transition: 'background' 0.3s;
+            &:hover {
+                background: #acacac3d;
+                transition: 'background' 0.3s;
+            }
+        }
     }
 </style>

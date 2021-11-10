@@ -1,8 +1,8 @@
 <script lang="ts">
     export let employee: EmployeeData
 
-    import type { EmployeeData, VacationType } from './types'
     import { employeeList, vacationTypes } from './stores'
+    import type { EmployeeData, VacationType } from './types'
 
     let isAddVacationGroupFormShown = false
 
@@ -22,7 +22,7 @@
 
 {#if !isAddVacationGroupFormShown}
     <div>
-        <button on:click={() => (isAddVacationGroupFormShown = true)}> Додати новий тип відпустки </button>
+        <button on:click={() => (isAddVacationGroupFormShown = true)}>Додати новий тип відпустки</button>
     </div>
 {/if}
 {#if isAddVacationGroupFormShown}
@@ -33,12 +33,10 @@
             {/each}
         </select>
         <input type="number" placeholder="Кількість днів" bind:value={totalDays} />
-        <label style="display: inline;">
-            <select bind:value={isPaid}>
-                <option value={true}>Оплачувана</option>
-                <option value={false}>Неоплачувана</option>
-            </select>
-        </label>
+        <select bind:value={isPaid}>
+            <option value={true}>Оплачувана</option>
+            <option value={false}>Неоплачувана</option>
+        </select>
         <div>
             <button type="submit">Додати</button>
         </div>

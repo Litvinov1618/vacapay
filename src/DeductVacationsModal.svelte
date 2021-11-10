@@ -1,13 +1,16 @@
 <script lang="ts">
-    export let selectedEmployee, selectedVacation
+    export let selectedEmployee: EmployeeData, selectedVacation: Vacation
 
     import { getContext } from 'svelte'
     import { InlineCalendar } from 'svelte-calendar'
+    import initCn from './cn'
     import dayjs, { HOLIDAYS } from './dayjs'
     import { employeeList } from './stores'
+    import type { EmployeeData, Vacation } from './types'
 
-    let startVacationStore, endVacationStore, errorMessage, vacationDays
+    const cn = initCn('DeductVacationsModal')
     const MINIMUM_VACATION_DAYS = 14
+    let startVacationStore, endVacationStore, errorMessage: string, vacationDays: number
 
     const { changeEmployeeVacationDays } = employeeList
 
@@ -47,26 +50,26 @@
 </script>
 
 <div>
-    <div class="DeductVacationsModal-Header">
+    <div class={cn('Header')}>
         На скільки днів {selectedEmployee.name} бере відпустку?
     </div>
-    <div class="DeductVacationsModal-VacationDays">
+    <div class={cn('VacationDays')}>
         Кількість днів: {vacationDays > 0 ? vacationDays : 0}
     </div>
-    <div class="DeductVacationsModal-Calendars">
-        <div class="DeductVacationsModal-Calendar" on:wheel|capture={e => e.stopPropagation()}>
-            <p class="DeductVacationsModal-CalendarLabel">Перший день:</p>
+    <div class={cn('Calendars')}>
+        <div class={cn('Calendar')} on:wheel|capture={e => e.stopPropagation()}>
+            <p class={cn('CalendarLabel')}>Перший день:</p>
             <InlineCalendar {theme} start={new Date()} startOfWeekIndex={1} bind:store={startVacationStore} />
         </div>
-        <div class="DeductVacationsModal-Calendar" on:wheel|capture={e => e.stopPropagation()}>
-            <p class="DeductVacationsModal-CalendarLabel">Останній день:</p>
+        <div class={cn('Calendar')} on:wheel|capture={e => e.stopPropagation()}>
+            <p class={cn('CalendarLabel')}>Останній день:</p>
             <InlineCalendar {theme} startOfWeekIndex={1} start={new Date()} bind:store={endVacationStore} />
         </div>
     </div>
 
-    <div class="DeductVacationsModal-Actions">
+    <div class={cn('Actions')}>
         {#if errorMessage}
-            <div class="DeductVacationsModal-ActionsError">{errorMessage}</div>
+            <div class={cn('ActionsError')}>{errorMessage}</div>
         {/if}
         <button
             on:click={() => changeEmployeeVacationDays(selectedEmployee, selectedVacation, vacationDays).then(close)}
@@ -77,43 +80,45 @@
     </div>
 </div>
 
-<style>
-    .DeductVacationsModal-Header {
-        padding: 0 15px 10px 15px;
-        font-size: 20px;
-        border-bottom: 1px solid #000000;
-        margin: 0px -15px;
-    }
+<style lang="scss">
+    .DeductVacationsModal {
+        &-Header {
+            padding: 0 15px 10px 15px;
+            font-size: 20px;
+            border-bottom: 1px solid #000000;
+            margin: 0px -15px;
+        }
 
-    .DeductVacationsModal-Calendars {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 50px;
-        flex-wrap: wrap;
-    }
+        &-Calendars {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
 
-    .DeductVacationsModal-CalendarLabel {
-        text-align: center;
-        font-size: 20px;
-    }
+        &-CalendarLabel {
+            text-align: center;
+            font-size: 20px;
+        }
 
-    .DeductVacationsModal-Actions {
-        text-align: center;
-    }
+        &-Actions {
+            text-align: center;
+        }
 
-    .DeductVacationsModal-VacationDays {
-        color: #eb7401;
-        padding-top: 10px;
-        font-size: 20px;
-        text-align: center;
-    }
+        &-VacationDays {
+            color: #eb7401;
+            padding-top: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
 
-    .DeductVacationsModal-ActionsError {
-        color: #ff0000;
-        padding-bottom: 15px;
-    }
+        &-ActionsError {
+            color: #ff0000;
+            padding-bottom: 15px;
+        }
 
-    .DeductVacationsModal-Calendar {
-        margin: 0 auto;
+        &-Calendar {
+            margin: 0 auto;
+        }
     }
 </style>
