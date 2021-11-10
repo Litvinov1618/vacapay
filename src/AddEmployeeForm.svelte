@@ -1,24 +1,24 @@
 <script lang="ts">
-    import { Link, useNavigate } from 'svelte-navigator'
     import initCn from './cn'
     import { employeeList, employeeTypes } from './stores'
     import type { EmployeeType } from './types'
 
-    const cn = initCn('EmployeeForm')
+    const cn = initCn('AddEmployeeForm')
     let employeeName: string, employeeType: EmployeeType, position: string
-    const navigate = useNavigate()
 
     const handleFormSubmit = () => {
         if (employeeName && employeeType && position) {
-            employeeList
-                .addEmployee({ name: employeeName, employeeType, position, vacations: [] })
-                .then(() => navigate('/'))
+            employeeList.addEmployee({
+                name: employeeName,
+                employeeType,
+                position,
+                vacations: [],
+            })
         }
     }
 </script>
 
 <form action="submit" on:submit|preventDefault={handleFormSubmit} class={cn()}>
-    <Link to="/">Назад</Link>
     <label class={cn('Label')}>
         ПІБ Працівника
         <input type="text" class={cn('Input')} bind:value={employeeName} required />
@@ -40,7 +40,7 @@
 </form>
 
 <style lang="scss">
-    .EmployeeForm {
+    .AddEmployeeForm {
         max-width: 500px;
         margin: 0 auto;
         padding: 20px 0;

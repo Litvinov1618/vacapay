@@ -1,3 +1,5 @@
+import type dbTimestamp from './dbTimestamp'
+
 export type EmployeeType = 'teacher' | 'administration' | 'supportStaff' | 'technicalStaff' | 'serviceStaff' | 'fired'
 export type VacationType = 'main' | 'forSpecialNatureOfWork' | 'social' | 'forEmployeeWish' | 'byAgreement'
 
@@ -14,6 +16,8 @@ export interface EmployeeData {
     position: string
     employeeType: EmployeeType
     vacations: Array<Vacation>
+    hiredAt?: dbTimestamp
+    firedAt?: dbTimestamp
 }
 
 export type EmployeeList = Array<EmployeeData>

@@ -1,16 +1,21 @@
 <script type="ts">
     export let employee: EmployeeData
 
+    import { getContext } from 'svelte'
     import AngleRightIcon from './icons/AngleRightIcon.svelte'
     import TrashIcon from './icons/TrashIcon.svelte'
     import Vacations from './Vacations.svelte'
     import { employeeList, employeeTypeFilter, employeeTypes, expandedEmployeeCardId } from './stores'
     import initCn from './cn'
     import type { EmployeeData } from './types'
+    import DatepickerModal from './DatepickerModal.svelte'
+    import dbTimestamp from './dbTimestamp'
+    import dayjs from './dayjs'
 
     const cn = initCn('Employee')
 
-    const { changeEmployeeInfo, fireEmployee, changeEmployeeType } = employeeList
+    const { changeEmployeeInfo, deleteEmployee, changeEmployeeType, setEmployeeFiredAt, setEmployeeHiredAt } =
+        employeeList
 
     $: isEmployeeCardOpened = $expandedEmployeeCardId === employee.id
 
@@ -32,14 +37,16 @@
         employeeTypeFilter.setType(event.target.value)
     }
 
-    const handleFireEmployee = () => {
+    const handleDeleteEmployee = () => {
         if (!confirm('Ви точно бажаєте видалити цього працівника з бази даних?')) return
-        fireEmployee(employee.id)
+        deleteEmployee(employee.id)
         expandedEmployeeCardId.setId('')
     }
 
     const isFired = employee.employeeType === 'fired'
     let isChangeEmployeeTypeFormShown = false
+
+    const { open } = getContext('simple-modal')
 </script>
 
 <div class={`${cn()} ${isFired ? cn('Fired') : ''}`}>
@@ -55,6 +62,47 @@
         <AngleRightIcon dropped={isEmployeeCardOpened} />
     </div>
     <div hidden={!isEmployeeCardOpened} class={cn('Vacations')}>
+        <div>
+            <b>Дата прийняття</b>:
+            {#if employee?.hiredAt}
+                {employee?.hiredAt?.toDate().toLocaleDateString('uk-UA') || '--'}
+            {:else}
+                <button
+                    on:click={() =>
+                        open(DatepickerModal, {
+                            onClose: date => setEmployeeHiredAt(employee.id, dbTimestamp.fromDate(date)),
+                        })}
+                >
+                    Додати дату прийняття
+                </button>
+            {/if}
+        </div>
+        <div>
+            <b>Дата звільнення</b>:
+            {#if employee?.firedAt}
+                {employee?.firedAt?.toDate().toLocaleDateString('uk-UA') || '--'}
+            {:else}
+                <button
+                    on:click={() =>
+                        open(DatepickerModal, {
+                            onClose: date =>
+                                confirm(
+                                    'Ви точно бажаєте вказати дату звільнення? У такому разі співробітника буде переведено до категорії "Звільнені"',
+                                ) &&
+                                setEmployeeFiredAt(employee.id, dbTimestamp.fromDate(date)) &&
+                                changeEmployeeType(employee, 'fired') &&
+                                employeeTypeFilter.setType('fired'),
+                        })}
+                >
+                    Додати дату звільнення
+                </button>
+            {/if}
+        </div>
+        {#if employee?.firedAt && employee?.hiredAt}
+            <b>Кількість відпрацьованих днів: </b>{dayjs(employee?.firedAt?.toDate()).businessDiff(
+                dayjs(employee?.hiredAt?.toDate()),
+            )}
+        {/if}
         <div class={cn('VacationsHeader')}><b>Відпустки</b>:</div>
         <Vacations {employee} />
         {#if !isChangeEmployeeTypeFormShown}
@@ -68,11 +116,9 @@
                 {/each}
             </select>
         {/if}
-        {#if isFired}
-            <button on:click={handleFireEmployee} class={cn('Button')}>
-                <TrashIcon />
-            </button>
-        {/if}
+        <button on:click={handleDeleteEmployee} class={cn('Button')}>
+            <TrashIcon />
+        </button>
     </div>
 </div>
 

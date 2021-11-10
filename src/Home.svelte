@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { Link } from 'svelte-navigator'
     import Employee from './Employee.svelte'
     import DaysWorkedCalendar from './DaysWorkedCalendar.svelte'
     import DeleteIcon from './icons/DeleteIcon.svelte'
     import { employeeList, employeeTypeFilter, employeeTypes } from './stores'
     import initCn from './cn'
+    import AddEmployeeForm from './AddEmployeeForm.svelte'
 
     const cn = initCn('Home')
     let employeeNameFilter = ''
@@ -26,6 +26,7 @@
         })
 
     let isVacationCalendarShown = false
+    let isAddEmployeeFormShown = false
 </script>
 
 <main class={cn()}>
@@ -34,8 +35,14 @@
         <button on:click={() => (isVacationCalendarShown = !isVacationCalendarShown)} class={cn('AddEmployeeButton')}>
             Календар відпрацьованих днів
         </button>
+        <button on:click={() => (isAddEmployeeFormShown = !isAddEmployeeFormShown)} class={cn('AddEmployeeButton')}>
+            Додати працівника
+        </button>
         {#if isVacationCalendarShown}
             <DaysWorkedCalendar />
+        {/if}
+        {#if isAddEmployeeFormShown}
+            <AddEmployeeForm />
         {/if}
     </div>
     <div class={cn('Filters')}>
@@ -44,7 +51,7 @@
             class={cn('Filter')}
             style={$employeeTypeFilter || 'border-color: #15bd2e;'}
         >
-            Всi
+            Всi працiвники
         </button>
         {#each Object.keys(employeeTypes) as employeeType}
             <button
@@ -72,7 +79,6 @@
                 {/if}
             </div>
         </label>
-        <Link to="addEmployee">Додати працівника</Link>
     </div>
     {#if filteredEmployeeList.length}
         {#each filteredEmployeeList as employee (employee.id)}
