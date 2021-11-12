@@ -5,6 +5,11 @@
 
     const cn = initCn('DaysWorkedCalendar')
     let startWorkingStore, endWorkingStore
+    const theme = {
+        calendar: {
+            width: '450px',
+        },
+    }
 
     $: daysWorked = dayjs($endWorkingStore?.selected).businessDiff(dayjs($startWorkingStore?.selected))
 </script>
@@ -22,11 +27,17 @@
                 start={dayjs().add(-100, 'year').toDate()}
                 startOfWeekIndex={1}
                 bind:store={startWorkingStore}
+                {theme}
             />
         </div>
         <div on:wheel|capture={e => e.stopPropagation()}>
             <p>Звiльнився:</p>
-            <Datepicker start={dayjs().add(-100, 'year').toDate()} startOfWeekIndex={1} bind:store={endWorkingStore} />
+            <Datepicker
+                start={dayjs().add(-100, 'year').toDate()}
+                startOfWeekIndex={1}
+                bind:store={endWorkingStore}
+                {theme}
+            />
         </div>
     </div>
 </div>

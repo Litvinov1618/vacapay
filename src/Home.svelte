@@ -25,20 +25,23 @@
             return true
         })
 
-    let isVacationCalendarShown = false
+    let isDaysWorkedCalendarShown = false
     let isAddEmployeeFormShown = false
 </script>
 
 <main class={cn()}>
     <h1 class={cn('Header')}>Vacapay</h1>
     <div>
-        <button on:click={() => (isVacationCalendarShown = !isVacationCalendarShown)} class={cn('AddEmployeeButton')}>
-            Календар відпрацьованих днів
+        <button
+            on:click={() => (isDaysWorkedCalendarShown = !isDaysWorkedCalendarShown)}
+            class={cn('AddEmployeeButton')}
+        >
+            {isDaysWorkedCalendarShown ? 'Закрити' : 'Відкрити'} календар відпрацьованих днів
         </button>
         <button on:click={() => (isAddEmployeeFormShown = !isAddEmployeeFormShown)} class={cn('AddEmployeeButton')}>
-            Додати працівника
+            {isAddEmployeeFormShown ? 'Закрити' : 'Відкрити'} форму додавання працівника
         </button>
-        {#if isVacationCalendarShown}
+        {#if isDaysWorkedCalendarShown}
             <DaysWorkedCalendar />
         {/if}
         {#if isAddEmployeeFormShown}
