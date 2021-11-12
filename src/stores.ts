@@ -26,6 +26,13 @@ const createEmployeeList = () => {
                     return { ...vacation, vacationDays: vacation.vacationDays - daysToDeduct }
                 }),
             }),
+        addCompensation: (employee: EmployeeData, selectedVacation: Vacation, compensation: number) =>
+            updateEmployeeInfo(employee.id, {
+                vacations: employee.vacations.map(vacation => {
+                    if (vacation.type !== selectedVacation.type) return vacation
+                    return { ...vacation, compensation }
+                }),
+            }),
         changeEmployeeTotalVacationDays: (
             employee: EmployeeData,
             selectedVacation: Vacation,

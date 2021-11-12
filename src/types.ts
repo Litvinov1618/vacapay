@@ -8,6 +8,7 @@ export type Vacation = {
     isPaid: boolean
     vacationDays: number
     totalDays: number
+    compensation?: number
 }
 
 export interface EmployeeData {

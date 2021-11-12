@@ -7,7 +7,7 @@
 
     export let employee: EmployeeData
 
-    const { changeEmployeeTotalVacationDays } = employeeList
+    const { changeEmployeeTotalVacationDays, addCompensation } = employeeList
 
     const handleTotalVacationDaysChange = (vacation: Vacation) => {
         const newTotalVacationDays = prompt(vacationTypes[vacation.type], vacation.totalDays.toLocaleString())
@@ -20,6 +20,13 @@
         }
 
         changeEmployeeTotalVacationDays(employee, vacation, +newTotalVacationDays)
+    }
+
+    const calculateCompensation = (employee: EmployeeData, vacation: Vacation) => {
+        const oneDayCost = +prompt('Вкажіть вартість одного дня')
+        if (oneDayCost && typeof oneDayCost === 'number' && !isNaN(oneDayCost)) {
+            addCompensation(employee, vacation, oneDayCost * vacation.vacationDays)
+        }
     }
 
     const { open } = getContext('simple-modal')
@@ -37,17 +44,13 @@
         {#if employee.employeeType !== 'fired'}
             <button
                 on:click={() => open(DeductVacationsModal, { selectedEmployee: employee, selectedVacation: vacation })}
-                >Відняти відпускні</button
             >
+                Відняти відпускні
+            </button>
+        {:else if vacation.isPaid && !vacation?.compensation}
+            <button on:click={() => calculateCompensation(employee, vacation)}> Порахувати компенсацію </button>
         {:else if vacation.isPaid}
-            <button
-                on:click={() =>
-                    alert(
-                        'Компенсацiя складає: ' +
-                            +prompt('Вкажіть вартість одного дня') * vacation.vacationDays +
-                            ' грн',
-                    )}>Порахувати компенсацію</button
-            >
+            {vacation.compensation}
         {/if}
     </div>
 {/each}
